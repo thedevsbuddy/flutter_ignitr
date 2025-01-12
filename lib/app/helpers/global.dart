@@ -7,8 +7,7 @@ import 'package:logger/logger.dart';
 
 import '../shared/shared.dart';
 
-/// Get Instance of [AuthState]
-AuthState authState = AuthState.instance;
+/// Get Instance of [Auth]
 Auth auth = Auth.instance;
 
 /// Get storage Helper

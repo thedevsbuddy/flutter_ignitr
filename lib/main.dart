@@ -5,8 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'app/shared/controllers/auth_state.dart';
-import 'app/shared/views/widgets/theme_builder.dart';
+import 'app/shared/shared.dart';
 import 'config/config.dart';
 import 'config/common/app_http_overrides.dart';
 import 'config/theme/app_theme.dart';
@@ -19,8 +18,8 @@ void main() async {
   /// Initialize the storage
   await GetStorage.init();
 
-  /// Initialize [AuthState]
-  Get.put<AuthState>(AuthState(), permanent: true);
+  /// Initialize [Auth]
+  Get.put<Auth>(Auth(), permanent: true);
 
   /// Set and lock device Orientation
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -40,14 +39,14 @@ class App extends StatelessWidget {
     );
 
     return ThemeBuilder(
-      builder: (context, _themeMode) {
+      builder: (context, themeMode) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           defaultTransition: Transition.fadeIn,
           title: Config.appName,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
-          themeMode: _themeMode,
+          themeMode: themeMode,
           initialRoute: Routes.splash,
           getPages: routes,
         );

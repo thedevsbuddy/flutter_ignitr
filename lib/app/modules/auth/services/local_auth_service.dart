@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import '../../../../data/AuthData.dart';
-import '../../../../data/UsersData.dart';
+import '../../../../data/auth_data.dart';
+import '../../../../data/users_data.dart';
 import '../../../models/api_response.dart';
 import '../../../models/user_model.dart';
 import 'auth_service.dart';

@@ -1,6 +1,6 @@
 import 'package:get/get_utils/get_utils.dart';
 
-import '../../../../data/AuthData.dart';
+import '../../../../data/auth_data.dart';
 import '../../../models/api_response.dart';
 import '../services.dart';
 

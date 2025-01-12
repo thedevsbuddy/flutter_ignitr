@@ -7,14 +7,11 @@ import '../../modules/modules.dart';
 import '../shared.dart';
 
 /// Manages authentication states and logics
-/// for entire application
-class AuthState extends AppController {
-  /// Static Getter for [AuthState]
-  ///
-  /// Can be accessed by calling `AuthState.instance`
-  static AuthState get instance {
-    if (!Get.isRegistered<AuthState>()) Get.put(AuthState());
-    return Get.find<AuthState>();
+class Auth extends GetxService {
+  /// Static Getter for [Auth]
+  static Auth get instance {
+    if (!Get.isRegistered<Auth>()) Get.put(Auth());
+    return Get.find<Auth>();
   }
 
   /// Get [AuthService] instance

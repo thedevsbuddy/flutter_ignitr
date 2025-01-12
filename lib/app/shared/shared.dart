@@ -1,6 +1,5 @@
 /// Controllers
 export 'controllers/app_controller.dart';
-export 'controllers/auth_state.dart';
 
 /// Services
 export 'services/services.dart';
