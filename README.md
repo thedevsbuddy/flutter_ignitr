@@ -12,8 +12,6 @@ Clone the repository
 git clone https://github.com/thedevsbuddy/flutter_fusion.git my_awesome_project
 ```
 
-**Note:- Know about the _[ThemeBuilder\*](#theme-builder)_**
-
 ### Features
 
 Here are some awesome features which you will get by default when scaffolding your project with this starting project.
