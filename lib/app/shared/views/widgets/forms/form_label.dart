@@ -12,7 +12,7 @@ class FormLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       "$label",
-      style: TextStyl.label(context)?.copyWith(color: color ?? kcDark),
+      style: TextStyl.label(context)?.copyWith(color: color ?? kcSlate.shade600),
     );
   }
 }

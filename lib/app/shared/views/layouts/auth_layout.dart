@@ -11,7 +11,7 @@ class AuthLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primary.background.value,
+      backgroundColor: AppColors.primarySurface(context),
       body: body,
     );
   }

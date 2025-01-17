@@ -1,53 +1,62 @@
 import 'package:flutter/material.dart';
 
-// class AppColorModel {
-//   final dynamic dark;
-//   final dynamic light;
-
-//   AppColorModel({
-//     required this.dark,
-//     required this.light,
-//   });
-// }
-
 class AppColorModel {
-  final ColorShadesModel background;
-  final ColorShadesModel foreground;
+  /// Theme Colors
+  final Color accent;
+  final Color danger;
+  final Color success;
+  final Color info;
+  final Color warning;
+
+  /// Primary Colors
+  final Color primarySurface;
+  final Color primarySurfaceLight;
+  final Color primarySurfaceLighter;
+  final Color primarySurfaceDark;
+  final Color primarySurfaceDarker;
+  final Color primaryContent;
+  final Color primaryContentLight;
+  final Color primaryContentLighter;
+  final Color primaryContentDark;
+  final Color primaryContentDarker;
+
+  /// Secondary Colors
+  final Color secondarySurface;
+  final Color secondarySurfaceLight;
+  final Color secondarySurfaceLighter;
+  final Color secondarySurfaceDark;
+  final Color secondarySurfaceDarker;
+  final Color secondaryContent;
+  final Color secondaryContentLight;
+  final Color secondaryContentLighter;
+  final Color secondaryContentDark;
+  final Color secondaryContentDarker;
 
   AppColorModel({
-    required this.background,
-    required this.foreground,
-  });
-}
-
-class ColorShadesModel {
-  final Color value;
-  final Color light;
-  final Color lighter;
-  final Color dark;
-  final Color darker;
-
-  ColorShadesModel({
-    required this.value,
-    required this.light,
-    required this.lighter,
-    required this.dark,
-    required this.darker,
-  });
-}
-
-class AppThemeColorModel {
-  final ColorShadesModel accent;
-  final ColorShadesModel success;
-  final ColorShadesModel info;
-  final ColorShadesModel warning;
-  final ColorShadesModel error;
-
-  AppThemeColorModel({
     required this.accent,
+    required this.danger,
     required this.success,
     required this.info,
     required this.warning,
-    required this.error,
+    required this.primarySurface,
+    required this.primarySurfaceLight,
+    required this.primarySurfaceLighter,
+    required this.primarySurfaceDark,
+    required this.primarySurfaceDarker,
+    required this.primaryContent,
+    required this.primaryContentLight,
+    required this.primaryContentLighter,
+    required this.primaryContentDark,
+    required this.primaryContentDarker,
+    required this.secondarySurface,
+    required this.secondarySurfaceLight,
+    required this.secondarySurfaceLighter,
+    required this.secondarySurfaceDark,
+    required this.secondarySurfaceDarker,
+    required this.secondaryContent,
+    required this.secondaryContentLight,
+    required this.secondaryContentLighter,
+    required this.secondaryContentDark,
+    required this.secondaryContentDarker,
   });
 }
