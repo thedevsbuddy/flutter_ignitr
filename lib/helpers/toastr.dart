@@ -5,12 +5,10 @@ import 'helpers.dart';
 
 class Toastr {
   /// Success
-  static void success(
-      {required String message,
-      Duration duration = const Duration(seconds: 3)}) {
+  static void success({required String message, Duration duration = const Duration(seconds: 3)}) {
     Get.snackbar(
       "Success!",
-      Str.ucFirst(message),
+      Str.of(message).ucFirst(),
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Colors.green,
       colorText: Colors.grey[900],
@@ -22,12 +20,10 @@ class Toastr {
   }
 
   /// Error
-  static void error(
-      {required String message,
-      Duration duration = const Duration(seconds: 3)}) {
+  static void error({required String message, Duration duration = const Duration(seconds: 3)}) {
     Get.snackbar(
       "Error!",
-      Str.ucFirst(message),
+      Str.of(message).ucFirst(),
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Colors.red,
       colorText: Colors.white,
@@ -39,12 +35,10 @@ class Toastr {
   }
 
   /// Info
-  static void info(
-      {required String message,
-      Duration duration = const Duration(seconds: 3)}) {
+  static void info({required String message, Duration duration = const Duration(seconds: 3)}) {
     Get.snackbar(
       "Info!",
-      Str.ucFirst(message),
+      Str.of(message).ucFirst(),
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Colors.blueAccent,
       colorText: Colors.white,
@@ -56,12 +50,10 @@ class Toastr {
   }
 
   /// Warning
-  static void warning(
-      {required String message,
-      Duration duration = const Duration(seconds: 3)}) {
+  static void warning({required String message, Duration duration = const Duration(seconds: 3)}) {
     Get.snackbar(
       "Warning!",
-      Str.ucFirst(message),
+      Str.of(message).ucFirst(),
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Colors.amber[700],
       colorText: Colors.grey[900],
@@ -73,10 +65,7 @@ class Toastr {
   }
 
   /// Toast
-  static void show(
-      {required String message,
-      Duration duration = const Duration(seconds: 3),
-      SnackPosition position = SnackPosition.BOTTOM}) {
+  static void show({required String message, Duration duration = const Duration(seconds: 3), SnackPosition position = SnackPosition.BOTTOM}) {
     Get.snackbar(
       "",
       "",
@@ -84,7 +73,7 @@ class Toastr {
       titleText: SizedBox.shrink(),
       backgroundColor: Colors.black.withAlpha(alpha(0.95)),
       messageText: Text(
-        "${Str.ucFirst(message)}",
+        "${Str.of(message).ucFirst()}",
         style: TextStyle(color: Colors.white, fontSize: 14),
       ),
       margin: EdgeInsets.all(0.0),
