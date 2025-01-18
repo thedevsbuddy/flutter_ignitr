@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../../helpers/helpers.dart';
 import '../../../shared/shared.dart';
-import '../controllers/settings_controller.dart';
+import '../../modules.dart';
 
 class SettingsPage extends StatelessWidget {
   @override
@@ -19,7 +19,7 @@ class SettingsPage extends StatelessWidget {
                     title: "Settings",
                     body: SafeArea(
                       child: Padding(
-                        padding: EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(kSpacer3),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -52,7 +52,7 @@ class SettingsPage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(width: 8),
+                                SizedBox(width: kSpacer2),
                                 Expanded(
                                   child: InkWell(
                                     splashFactory: NoSplash.splashFactory,
@@ -76,7 +76,7 @@ class SettingsPage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(width: 8),
+                                SizedBox(width: kSpacer2),
                                 Expanded(
                                   child: InkWell(
                                     splashFactory: NoSplash.splashFactory,
@@ -102,27 +102,45 @@ class SettingsPage extends StatelessWidget {
                                 )
                               ],
                             ),
-                            const SizedBox(height: 16),
+                            const SizedBox(height: kSpacer),
                             Text(
                               "Account",
                               style: TextStyl.bodySm(context),
                             ),
-                            const SizedBox(height: 4),
+                            const SizedBox(height: kSpacer1),
                             InkWell(
-                              onTap: auth.logout,
+                              splashFactory: NoSplash.splashFactory,
+                              onTap: () => Get.toNamed(ProfileRoutes.profile),
                               child: Container(
                                 width: double.maxFinite,
                                 decoration: BoxDecoration(
-                                  color: Theme.of(context).colorScheme.surface,
-                                  borderRadius: BorderRadius.circular(8),
+                                  color: AppColors.secondarySurface(context),
+                                  borderRadius: BorderRadius.circular(kSpacer2),
                                 ),
-                                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                                padding: EdgeInsets.symmetric(vertical: kSpacer3, horizontal: kSpacer),
+                                child: Text(
+                                  "Profile",
+                                  style: TextStyl.button(context),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: kSpacer1),
+                            InkWell(
+                              onTap: auth.logout,
+                              splashFactory: NoSplash.splashFactory,
+                              child: Container(
+                                width: double.maxFinite,
+                                decoration: BoxDecoration(
+                                  color: AppColors.secondarySurface(context),
+                                  borderRadius: BorderRadius.circular(kSpacer2),
+                                ),
+                                padding: EdgeInsets.symmetric(vertical: kSpacer3, horizontal: kSpacer),
                                 child: Text(
                                   "Logout",
                                   style: TextStyl.button(context),
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),

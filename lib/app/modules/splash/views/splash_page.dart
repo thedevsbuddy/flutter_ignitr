@@ -33,7 +33,7 @@ class SplashPage extends StatelessWidget {
             Spacer(),
             Padding(
               padding: const EdgeInsets.only(bottom: 32.0),
-              child: LoadingIcon(height: spacer, color: AppColors.accent(context)),
+              child: LoadingIcon(height: kSpacer, color: AppColors.accent(context)),
             ),
           ],
         ),

@@ -19,7 +19,7 @@ class ProfilePage extends StatelessWidget {
                 : MasterLayout(
                     title: "Profile",
                     body: SafeArea(
-                      child: Container(
+                      child: Center(
                         child: Text("Build awesome page here."),
                       ),
                     ),

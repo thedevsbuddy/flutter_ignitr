@@ -12,6 +12,6 @@ class LocalProfileService implements ProfileService {
 
   @override
   Future<ApiResponse> getData() async {
-    throw UnimplementedError();
+    return ApiResponse(data: 'Local Data');
   }
 }

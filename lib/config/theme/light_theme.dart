@@ -39,8 +39,7 @@ InputDecorationTheme _inputTheme() {
       fontSize: 14,
       color: kcSlate.shade500.withAlpha(alpha(0.5)),
     ),
-    contentPadding:
-        const EdgeInsets.symmetric(vertical: spacer3, horizontal: spacer4),
+    contentPadding: const EdgeInsets.symmetric(vertical: kSpacer3, horizontal: kSpacer4),
     prefixStyle: TextStyle(
       color: kcSlate.shade500,
     ),
@@ -53,62 +52,62 @@ InputDecorationTheme _inputTheme() {
 
 // Icon Theme
 IconThemeData _iconTheme() => IconThemeData(
-  color: kcSlate.shade500,
-  size: 16.0,
-);
+      color: kcSlate.shade500,
+      size: 16.0,
+    );
 
 // Light Text Theme
 TextTheme _textThemeLight() => TextTheme(
-  displayLarge: TextStyle(
-    fontSize: 35,
-    fontFamily: Config.headingFontFamily,
-    fontWeight: FontWeight.w600,
-    color: AppColors.light.primaryContent,
-  ),
-  displayMedium: TextStyle(
-    fontSize: 30,
-    fontFamily: Config.headingFontFamily,
-    fontWeight: FontWeight.w600,
-    color: AppColors.light.primaryContent,
-  ),
-  displaySmall: TextStyle(
-    fontSize: 25,
-    fontFamily: Config.headingFontFamily,
-    fontWeight: FontWeight.w600,
-    color: AppColors.light.primaryContent,
-  ),
-  headlineMedium: TextStyle(
-    fontFamily: Config.headingFontFamily,
-    fontWeight: FontWeight.w600,
-    color: AppColors.light.primaryContent,
-  ),
-  headlineSmall: TextStyle(
-    fontFamily: Config.headingFontFamily,
-    fontWeight: FontWeight.w600,
-    color: AppColors.light.primaryContent,
-  ),
-  titleLarge: TextStyle(
-    fontFamily: Config.headingFontFamily,
-    fontWeight: FontWeight.w600,
-    color: AppColors.light.primaryContent,
-  ),
-  bodyLarge: TextStyle(
-    fontSize: 16.0,
-    fontFamily: Config.bodyFontFamily,
-    color: AppColors.light.primaryContent,
-  ),
-  bodyMedium: TextStyle(
-    fontSize: 14.0,
-    fontFamily: Config.bodyFontFamily,
-    color: AppColors.light.primaryContent,
-  ),
-  labelLarge: TextStyle(
-    fontSize: 14.0,
-    fontWeight: FontWeight.w600,
-    fontFamily: Config.bodyFontFamily,
-    color: AppColors.light.primaryContent,
-  ),
-);
+      displayLarge: TextStyle(
+        fontSize: 35,
+        fontFamily: Config.headingFontFamily,
+        fontWeight: FontWeight.w600,
+        color: AppColors.light.primaryContent,
+      ),
+      displayMedium: TextStyle(
+        fontSize: 30,
+        fontFamily: Config.headingFontFamily,
+        fontWeight: FontWeight.w600,
+        color: AppColors.light.primaryContent,
+      ),
+      displaySmall: TextStyle(
+        fontSize: 25,
+        fontFamily: Config.headingFontFamily,
+        fontWeight: FontWeight.w600,
+        color: AppColors.light.primaryContent,
+      ),
+      headlineMedium: TextStyle(
+        fontFamily: Config.headingFontFamily,
+        fontWeight: FontWeight.w600,
+        color: AppColors.light.primaryContent,
+      ),
+      headlineSmall: TextStyle(
+        fontFamily: Config.headingFontFamily,
+        fontWeight: FontWeight.w600,
+        color: AppColors.light.primaryContent,
+      ),
+      titleLarge: TextStyle(
+        fontFamily: Config.headingFontFamily,
+        fontWeight: FontWeight.w600,
+        color: AppColors.light.primaryContent,
+      ),
+      bodyLarge: TextStyle(
+        fontSize: 16.0,
+        fontFamily: Config.bodyFontFamily,
+        color: AppColors.light.primaryContent,
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 14.0,
+        fontFamily: Config.bodyFontFamily,
+        color: AppColors.light.primaryContent,
+      ),
+      labelLarge: TextStyle(
+        fontSize: 14.0,
+        fontWeight: FontWeight.w600,
+        fontFamily: Config.bodyFontFamily,
+        color: AppColors.light.primaryContent,
+      ),
+    );
 
 // Light Theme
 final ThemeData lightThemeData = ThemeData(

@@ -26,7 +26,7 @@ InputDecorationTheme _inputTheme() {
       fontSize: 14,
       color: kcSlate.shade100.withAlpha(alpha(0.5)),
     ),
-    contentPadding: const EdgeInsets.symmetric(vertical: spacer3, horizontal: spacer4),
+    contentPadding: const EdgeInsets.symmetric(vertical: kSpacer3, horizontal: kSpacer4),
     border: _inputBorder(),
     enabledBorder: _inputBorder(),
     focusedBorder: _inputBorder(),
@@ -95,45 +95,45 @@ TextTheme _textThemeDark = TextTheme(
 
 /// Dark Theme
 final ThemeData darkThemeData = ThemeData(
-      brightness: Brightness.dark,
-      iconTheme: _iconTheme,
-      textTheme: _textThemeDark,
-      scaffoldBackgroundColor: AppColors.dark.primarySurface,
-      colorScheme: ColorScheme.dark(
-        surface: AppColors.dark.primarySurface,
-        brightness: Brightness.dark,
+  brightness: Brightness.dark,
+  iconTheme: _iconTheme,
+  textTheme: _textThemeDark,
+  scaffoldBackgroundColor: AppColors.dark.primarySurface,
+  colorScheme: ColorScheme.dark(
+    surface: AppColors.dark.primarySurface,
+    brightness: Brightness.dark,
+  ),
+  primaryColor: AppColors.dark.accent,
+  primaryColorLight: AppColors.dark.accent.withAlpha(alpha(0.875)),
+  hintColor: AppColors.dark.accent,
+  primarySwatch: generateMaterialColor(AppColors.dark.accent),
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      backgroundColor: AppColors.dark.accent,
+    ),
+  ),
+  buttonTheme: ButtonThemeData(
+    padding: EdgeInsets.symmetric(horizontal: 20.0),
+  ),
+  appBarTheme: AppBarTheme(
+    elevation: 0.0,
+    backgroundColor: AppColors.dark.primarySurface,
+    iconTheme: IconThemeData(color: kcSlate.shade100, size: 24),
+    toolbarTextStyle: TextTheme(
+      titleLarge: TextStyle(
+        color: AppColors.dark.primaryContent,
+        fontSize: 20,
+        fontWeight: FontWeight.w500,
       ),
-      primaryColor: AppColors.dark.accent,
-      primaryColorLight: AppColors.dark.accent.withAlpha(alpha(0.875)),
-      hintColor: AppColors.dark.accent,
-      primarySwatch: generateMaterialColor(AppColors.dark.accent),
-      textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(
-          padding: EdgeInsets.symmetric(horizontal: 20.0),
-          backgroundColor: AppColors.dark.accent,
-        ),
+    ).titleLarge,
+    titleTextStyle: TextTheme(
+      titleLarge: TextStyle(
+        color: AppColors.dark.primaryContent,
+        fontSize: 20,
+        fontWeight: FontWeight.w500,
       ),
-      buttonTheme: ButtonThemeData(
-        padding: EdgeInsets.symmetric(horizontal: 20.0),
-      ),
-      appBarTheme: AppBarTheme(
-        elevation: 0.0,
-        backgroundColor: AppColors.dark.primarySurface,
-        iconTheme: IconThemeData(color: kcSlate.shade100, size: 24),
-        toolbarTextStyle: TextTheme(
-          titleLarge: TextStyle(
-            color: AppColors.dark.primaryContent,
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
-          ),
-        ).titleLarge,
-        titleTextStyle: TextTheme(
-          titleLarge: TextStyle(
-            color: AppColors.dark.primaryContent,
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
-          ),
-        ).titleLarge,
-      ),
-      inputDecorationTheme: _inputTheme(),
-    );
+    ).titleLarge,
+  ),
+  inputDecorationTheme: _inputTheme(),
+);

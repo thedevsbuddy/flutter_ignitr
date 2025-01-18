@@ -3,10 +3,15 @@ import 'package:flutter/material.dart';
 import '../../config/theme/colors.dart';
 import '../app/shared/models/app_color_model.dart';
 import '../app/shared/shared.dart';
+import 'global.dart';
 
 class AppColors {
   static Color accent(BuildContext context) {
     return Theme.of(context).brightness == Brightness.light ? AppColors.light.accent : AppColors.dark.accent;
+  }
+
+  static Color accentContent(BuildContext context) {
+    return getContrastColor(accent(context));
   }
 
   static Color success(BuildContext context) {

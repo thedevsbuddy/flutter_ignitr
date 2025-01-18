@@ -6,13 +6,11 @@ import 'local_profile_service.dart';
 
 abstract class ProfileService {
   /// Configure if Mock is enabled or not @accepts[true|false]
-  static const mockEnabled = false;
+  static const mockEnabled = true;
 
   /// Create and get the instance of [ProfileService]
   static ProfileService get instance {
-    if (!Get.isRegistered<ProfileService>())
-      Get.lazyPut<ProfileService>(
-          () => mockEnabled ? LocalProfileService() : ApiProfileService());
+    if (!Get.isRegistered<ProfileService>()) Get.lazyPut<ProfileService>(() => mockEnabled ? LocalProfileService() : ApiProfileService());
     return Get.find<ProfileService>();
   }
 

@@ -4,7 +4,6 @@ import '../../../shared/shared.dart';
 import '../../modules.dart';
 import 'package:get/get.dart';
 
-
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
 
@@ -39,7 +38,7 @@ class DashboardPage extends StatelessWidget {
                                   'I am a dashboard',
                                   style: TextStyl.subtitle(context),
                                 ),
-                                SizedBox(height: spacer),
+                                SizedBox(height: kSpacer),
                                 Text('Create awesome application'),
                               ],
                             ),

@@ -72,7 +72,7 @@ int alpha(double opacity) {
 Color getContrastColor(Color color) {
   int d = 0;
 
-// Counting the perceptive luminance - human eye favors green color...
+  /// Counting the perceptive luminance - human eye favors green color...
   double luminance = (0.299 * color.r + 0.587 * color.g + 0.114 * color.b) / 255;
 
   if (luminance > 0.7) {
@@ -81,5 +81,5 @@ Color getContrastColor(Color color) {
     d = 255; // dark colors - white font
   }
 
-  return Color.fromARGB(color.a as int, d, d, d);
+  return Color.fromARGB(color.a.toInt() * 255, d, d, d);
 }

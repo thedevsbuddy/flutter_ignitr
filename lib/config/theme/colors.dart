@@ -1,5 +1,5 @@
-import '../../helpers/color_palette.dart';
 import '../../app/shared/models/app_color_model.dart';
+import '../../helpers/helpers.dart';
 
 /// [lightColors] returns [AppColorModel] containing light theme colors
 final AppColorModel lightColors = AppColorModel(
@@ -24,11 +24,11 @@ final AppColorModel lightColors = AppColorModel(
   primaryContentDarker: kcSlate.shade600,
 
   /// Secondary Colors
-  secondarySurfaceLighter: kcSlate.shade100,
-  secondarySurfaceLight: kcSlate.shade200,
-  secondarySurface: kcSlate.shade50,
-  secondarySurfaceDark: kcSlate.shade400,
-  secondarySurfaceDarker: kcSlate.shade500,
+  secondarySurfaceLighter: kcSlate.shade50,
+  secondarySurfaceLight: kcSlate.shade100.withAlpha(alpha(0.75)),
+  secondarySurface: kcSlate.shade100,
+  secondarySurfaceDark: kcSlate.shade200,
+  secondarySurfaceDarker: kcSlate.shade300,
 
   secondaryContentLighter: kcSlate.shade800,
   secondaryContentLight: kcSlate.shade700,
@@ -60,11 +60,11 @@ final AppColorModel darkColors = AppColorModel(
   primaryContentDarker: kcSlate.shade300,
 
   /// Secondary Colors
-  secondarySurfaceLighter: kcZinc.shade600,
-  secondarySurfaceLight: kcZinc.shade700,
-  secondarySurface: kcZinc.shade800,
-  secondarySurfaceDark: kcZinc.shade900,
-  secondarySurfaceDarker: kcZinc.shade900,
+  secondarySurfaceLighter: kcSlate.shade500,
+  secondarySurfaceLight: kcSlate.shade600,
+  secondarySurface: kcSlate.shade700,
+  secondarySurfaceDark: kcSlate.shade800,
+  secondarySurfaceDarker: kcSlate.shade900,
 
   secondaryContentLighter: kcZinc.shade50,
   secondaryContentLight: kcZinc.shade100,
