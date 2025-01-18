@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../../app/helpers/color_palette.dart';
+import '../../helpers/color_palette.dart';
 import '../../app/shared/models/app_color_model.dart';
 
 /// [lightColors] returns [AppColorModel] containing light theme colors
@@ -49,26 +47,28 @@ final AppColorModel darkColors = AppColorModel(
   warning: kcWarning,
 
   /// Primary Colors
-  primarySurface: Color(0xffF9F9F9),
-  primarySurfaceLight: Color(0xffF9F9F9),
-  primarySurfaceLighter: Color(0xffF9F9F9),
-  primarySurfaceDark: Color(0xffF9F9F9),
-  primarySurfaceDarker: Color(0xffF9F9F9),
-  primaryContent: Color(0xff1E1E1E),
-  primaryContentLight: Color(0xff4A4A4A),
-  primaryContentLighter: Color(0xff4A4A4A),
-  primaryContentDark: Color(0xff000000),
-  primaryContentDarker: Color(0xff7E7E7E),
+  primarySurfaceLighter: kcSlate.shade600,
+  primarySurfaceLight: kcSlate.shade700,
+  primarySurface: kcSlate.shade800,
+  primarySurfaceDark: kcSlate.shade900,
+  primarySurfaceDarker: kcSlate.shade900,
+
+  primaryContentLighter: kcSlate.shade50,
+  primaryContentLight: kcSlate.shade100,
+  primaryContent: kcSlate.shade100,
+  primaryContentDark: kcSlate.shade200,
+  primaryContentDarker: kcSlate.shade300,
 
   /// Secondary Colors
-  secondarySurface: Color(0xffF9F9F9),
-  secondarySurfaceLight: Color(0xffF9F9F9),
-  secondarySurfaceLighter: Color(0xffF9F9F9),
-  secondarySurfaceDark: Color(0xffF9F9F9),
-  secondarySurfaceDarker: Color(0xffF9F9F9),
-  secondaryContent: Color(0xff1E1E1E),
-  secondaryContentLight: Color(0xff4A4A4A),
-  secondaryContentLighter: Color(0xff4A4A4A),
-  secondaryContentDark: Color(0xff000000),
-  secondaryContentDarker: Color(0xff7E7E7E),
+  secondarySurfaceLighter: kcZinc.shade600,
+  secondarySurfaceLight: kcZinc.shade700,
+  secondarySurface: kcZinc.shade800,
+  secondarySurfaceDark: kcZinc.shade900,
+  secondarySurfaceDarker: kcZinc.shade900,
+
+  secondaryContentLighter: kcZinc.shade50,
+  secondaryContentLight: kcZinc.shade100,
+  secondaryContent: kcZinc.shade100,
+  secondaryContentDark: kcZinc.shade200,
+  secondaryContentDarker: kcZinc.shade300,
 );

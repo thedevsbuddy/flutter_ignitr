@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../helpers/helpers.dart';
+import '../../../../../helpers/helpers.dart';
 import '../../../shared.dart';
 
 enum ButtonVariant { PRIMARY, SECONDARY, DANGER, SUCCESS, INFO, WARNING, DARK, LIGHT }
@@ -234,6 +234,7 @@ class Button extends StatelessWidget {
                         : LoadingIcon(
                             color: !outline ? _btnTxtColor : _btnBgColor,
                             height: 16,
+                            circular: true,
                           ),
               )
             : Row(

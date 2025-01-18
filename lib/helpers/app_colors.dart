@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../config/theme/colors.dart';
-import '../shared/models/app_color_model.dart';
+import '../app/shared/models/app_color_model.dart';
+import '../app/shared/shared.dart';
 
 class AppColors {
   static Color accent(BuildContext context) {

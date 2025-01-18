@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../app/helpers/helpers.dart';
+import '../../helpers/helpers.dart';
 import '../config.dart';
 
-///======================================
-/// Dark Input Border
-///======================================
+/// Input Border
 OutlineInputBorder _inputBorder([Color? color]) {
   return OutlineInputBorder(
     borderSide: BorderSide(
@@ -16,9 +14,7 @@ OutlineInputBorder _inputBorder([Color? color]) {
   );
 }
 
-///======================================
-/// Dark Input Theme
-///======================================
+/// Input Theme
 InputDecorationTheme _inputTheme() {
   return InputDecorationTheme(
     isDense: true,
@@ -38,17 +34,13 @@ InputDecorationTheme _inputTheme() {
   );
 }
 
-///======================================
-/// Dark Icon Theme
-///======================================
+/// Icon Theme
 IconThemeData _iconTheme = IconThemeData(
   color: kcSlate.shade100,
   size: 16.0,
 );
 
-///======================================
 /// Dark Text Theme
-///======================================
 TextTheme _textThemeDark = TextTheme(
   displayLarge: TextStyle(
     fontSize: 30,
@@ -101,26 +93,24 @@ TextTheme _textThemeDark = TextTheme(
   ),
 );
 
-///======================================
 /// Dark Theme
-///======================================
-ThemeData darkThemeData(BuildContext context) => ThemeData(
+final ThemeData darkThemeData = ThemeData(
       brightness: Brightness.dark,
       iconTheme: _iconTheme,
       textTheme: _textThemeDark,
-      scaffoldBackgroundColor: kcSlate.shade800,
+      scaffoldBackgroundColor: AppColors.dark.primarySurface,
       colorScheme: ColorScheme.dark(
-        surface: kcSlate.shade700,
+        surface: AppColors.dark.primarySurface,
         brightness: Brightness.dark,
       ),
-      primaryColor: kcAccent,
-      primaryColorLight: kcSlate.shade100,
-      hintColor: kcAccent,
-      primarySwatch: generateMaterialColor(kcPrimary),
+      primaryColor: AppColors.dark.accent,
+      primaryColorLight: AppColors.dark.accent.withAlpha(alpha(0.875)),
+      hintColor: AppColors.dark.accent,
+      primarySwatch: generateMaterialColor(AppColors.dark.accent),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           padding: EdgeInsets.symmetric(horizontal: 20.0),
-          backgroundColor: kcAccent,
+          backgroundColor: AppColors.dark.accent,
         ),
       ),
       buttonTheme: ButtonThemeData(
@@ -128,18 +118,18 @@ ThemeData darkThemeData(BuildContext context) => ThemeData(
       ),
       appBarTheme: AppBarTheme(
         elevation: 0.0,
-        backgroundColor: kcPrimary,
+        backgroundColor: AppColors.dark.primarySurface,
         iconTheme: IconThemeData(color: kcSlate.shade100, size: 24),
         toolbarTextStyle: TextTheme(
           titleLarge: TextStyle(
-            color: kcSlate.shade100,
+            color: AppColors.dark.primaryContent,
             fontSize: 20,
             fontWeight: FontWeight.w500,
           ),
         ).titleLarge,
         titleTextStyle: TextTheme(
           titleLarge: TextStyle(
-            color: kcSlate.shade100,
+            color: AppColors.dark.primaryContent,
             fontSize: 20,
             fontWeight: FontWeight.w500,
           ),

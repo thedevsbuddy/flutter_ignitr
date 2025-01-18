@@ -1,4 +1,4 @@
-import '../../helpers/request.dart';
+import '../../../helpers/helpers.dart';
 
 class BaseService {
   /// Create a request class instance

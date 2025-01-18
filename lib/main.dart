@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import 'helpers/helpers.dart';
 import 'app/shared/shared.dart';
 import 'config/config.dart';
 import 'config/common/app_http_overrides.dart';
@@ -32,8 +33,8 @@ class App extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: Theme.of(context).brightness == Brightness.dark
-            ? Colors.white
-            : Colors.black,
+            ? AppColors.light.primarySurface
+            : AppColors.dark.primarySurface,
         statusBarBrightness: Theme.of(context).brightness,
       ),
     );
