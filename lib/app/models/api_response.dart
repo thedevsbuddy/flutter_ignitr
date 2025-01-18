@@ -1,10 +1,3 @@
-import 'dart:convert';
-
-ApiResponse apiResponseModelFromJson(String str) =>
-    ApiResponse.fromJson(json.decode(str));
-
-String apiResponseModelToJson(ApiResponse data) => json.encode(data.toJson());
-
 class ApiResponse {
   ApiResponse({
     this.status,
@@ -58,10 +51,11 @@ class ApiResponse {
   bool hasData() {
     if (data == null) {
       return false;
-    } else if (data is List) {
-      if (data.length > 0) return true;
-    } else if (data is Map) {
-      if (data.length > 0) return true;
+    }
+    if (data is List || data is Map) {
+      if (data.length > 0) {
+        return true;
+      }
     }
 
     return false;

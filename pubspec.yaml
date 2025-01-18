@@ -22,6 +22,7 @@ dependencies:
   connectivity_plus: ^6.1.1
   feather_icons: ^1.2.0
   flutter_local_notifications: ^18.0.1
+  recase: ^4.1.0
 
   # Enable firebase essential services
 #  fire_connect:
@@ -30,7 +31,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.13.1
+  flutter_launcher_icons: ^0.14.3
   logger: ^2.2.0
   faker: ^2.1.0
   modulr:

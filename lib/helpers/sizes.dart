@@ -1,6 +1,4 @@
-///==============================
 /// Spacers | Sizes
-///==============================
 
 const double spacer = 16.0;
 const double spacer1 = spacer * .25;
