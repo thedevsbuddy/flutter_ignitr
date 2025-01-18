@@ -1,5 +1,5 @@
 import '../../../models/api_response.dart';
-import '../../../helpers/request.dart';
+import '../../../../helpers/request.dart';
 import 'profile_service.dart';
 
 class ApiProfileService implements ProfileService {

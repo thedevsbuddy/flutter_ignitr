@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../helpers/helpers.dart';
+import '../../../../helpers/helpers.dart';
 
 class LoadingIconWidget extends StatelessWidget {
   LoadingIconWidget({Key? key, this.message = "Loading..."}) : super(key: key);

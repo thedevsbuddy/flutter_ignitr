@@ -1,4 +1,4 @@
-import '../../../helpers/request.dart';
+import '../../../../helpers/request.dart';
 import '../../../models/api_response.dart';
 import 'auth_service.dart';
 

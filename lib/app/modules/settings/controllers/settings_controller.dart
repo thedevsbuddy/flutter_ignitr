@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../../helpers/global.dart';
+import '../../../../helpers/helpers.dart';
 import '../../../shared/controllers/app_controller.dart';
 import '../../../shared/views/widgets/theme_builder.dart';
 
