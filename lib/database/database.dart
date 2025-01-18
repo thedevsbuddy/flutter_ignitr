@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 import 'database_connection.dart';
 
 class Database extends DatabaseConnection {
@@ -22,10 +24,27 @@ class Database extends DatabaseConnection {
   /// @param identifier The key to use for the lookup (e.g. 'id', 'name', etc.)
   /// @param value The value to match against the identifier
   /// @return The first item that matches the identifier and value, or null if not found
-  Future<Map<String, dynamic>?> findOne(
-      String identifier, dynamic value) async {
+  Future<Map<String, dynamic>?> findOne(Map<String, dynamic> args) async {
     await loadFile();
-    return data?.firstWhere((item) => item[identifier] == value);
+
+    return data?.firstWhereOrNull((item) {
+      bool matches = false;
+      for (String key in args.keys) {
+        matches = item[key] == args[key];
+      }
+      return matches;
+    });
+  }
+
+  /// Retrieves the first item from the database.
+  ///
+  /// This method loads the data from the file and returns the first item in the data list,
+  /// or null if the data list is empty. It is useful for fetching the first record from the database.
+  ///
+  /// @return The first item in the database, or null if the data list is empty.
+  Future<Map<String, dynamic>?> first() async {
+    await loadFile();
+    return data?.firstOrNull;
   }
 
   /// Stores a new item in the database.
@@ -52,8 +71,7 @@ class Database extends DatabaseConnection {
   /// @param identifier The key to use for the lookup (e.g. 'id', 'name', etc.)
   /// @param value The value to match against the identifier
   /// @return The updated list of data items in the database.
-  Future<List<Map<String, dynamic>>?> destroy(
-      String identifier, dynamic value) async {
+  Future<List<Map<String, dynamic>>?> destroy(String identifier, dynamic value) async {
     await loadFile();
     data!.removeWhere((item) => item[identifier] == value);
     await saveFile(data!);

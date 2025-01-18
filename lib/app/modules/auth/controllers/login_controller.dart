@@ -20,8 +20,12 @@ class LoginController extends AppController {
   final TextEditingController passwordInput = TextEditingController();
 
   Future<void> submit() async {
-    String client = "loginSubmit";
     if (!formKey.currentState!.validate()) return;
+    await attempt();
+  }
+
+  Future<void> attempt() async {
+    String client = "loginAttempt";
 
     try {
       /// Prepare form data to be sent to server
@@ -34,11 +38,11 @@ class LoginController extends AppController {
       _authService.init(client);
 
       /// Call api to login user
-      ApiResponse response =
-          await _authService.login(body: body, client: client);
+      ApiResponse response = await _authService.login(client: client, body: body);
       // log.w(response.data);
       if (response.hasError()) {
         Toastr.show(message: "${response.message}");
+        _authService.close(client);
         return;
       }
       await auth.setUserData(response.data['user']);

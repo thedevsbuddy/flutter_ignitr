@@ -3,8 +3,11 @@ import 'package:get/get.dart';
 
 import '../../../../helpers/helpers.dart';
 import '../../../shared/shared.dart';
+import '../controllers/register_controller.dart';
 
 class RegisterPage extends StatelessWidget {
+  final RegisterController controller = RegisterController.instance;
+
   @override
   Widget build(BuildContext context) {
     var screen = Get.size;
@@ -35,63 +38,58 @@ class RegisterPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 15),
-                      Text("Welcome,",
-                          style: TextStyl.title(context)
-                              ?.copyWith(fontWeight: FontWeight.w700)),
+                      Text("Welcome,", style: TextStyl.title(context)?.copyWith(fontWeight: FontWeight.w700)),
                       SizedBox(height: 5),
-                      Text("Create an account to continue.",
-                          style: TextStyl.body(context)
-                              ?.copyWith(fontWeight: FontWeight.bold)),
+                      Text("Create an account to continue.", style: TextStyl.body(context)?.copyWith(fontWeight: FontWeight.bold)),
                     ],
                   ),
                   Form(
-                    // key: auth.formKey,
+                    key: controller.formKey,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     child: Column(
                       children: [
                         FormInput.text(
-                          controller: null,
-                          placeholder: "Name",
+                          controller: controller.firstNameInput,
+                          placeholder: "First Name",
                           leading: Icon(Icons.person_outline),
-                          validator: (value) =>
-                              Validator("Name", value!).required().validate(),
+                          validator: (value) => Validator("First name", value!).required().validate(),
                         ),
                         SizedBox(height: 25),
                         FormInput.text(
-                          controller: null,
+                          controller: controller.lastNameInput,
+                          placeholder: "Last Name",
+                          leading: Icon(Icons.person_outline),
+                          validator: (value) => Validator("Last name", value!).required().validate(),
+                        ),
+                        SizedBox(height: 25),
+                        FormInput.text(
+                          controller: controller.usernameInput,
                           placeholder: "Username",
                           leading: Icon(Icons.alternate_email_outlined),
-                          validator: (value) => Validator("Username", value!)
-                              .required()
-                              .validate(),
+                          validator: (value) => Validator("Username", value!).required().validate(),
                         ),
                         SizedBox(height: 25),
                         FormInput.email(
-                          controller: null,
+                          controller: controller.emailInput,
                           placeholder: "Email",
                           leading: Icon(Icons.email_outlined),
-                          validator: (value) => Validator("Email", value!)
-                              .email()
-                              .required()
-                              .validate(),
+                          validator: (value) => Validator("Email", value!).email().required().validate(),
                         ),
                         SizedBox(height: 25),
                         FormInput.password(
-                          controller: null,
+                          controller: controller.passwordInput,
                           placeholder: "Password",
                           leading: Icon(Icons.lock_outline),
-                          validator: (value) => Validator("Password", value!)
-                              .required()
-                              .validate(),
+                          validator: (value) => Validator("Password", value!).required().validate(),
                         ),
                         SizedBox(height: 25),
                         Button.block(
                           key: UniqueKey(),
                           label: "Register",
                           onTap: (btn) {
-                            // btn.setBusy(true).setDisabled(true);
-                            // authController.login();
-                            // btn.setBusy(false).setDisabled(false);
+                            btn.setBusy(true).setDisabled(true);
+                            controller.submit();
+                            btn.setBusy(false).setDisabled(false);
                           },
                         ),
                         SizedBox(height: 16),
@@ -100,16 +98,11 @@ class RegisterPage extends StatelessWidget {
                           child: Text.rich(
                             TextSpan(
                               text: "Already have an account?",
-                              style: TextStyl.button(context)?.copyWith(
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyLarge
-                                      ?.color),
+                              style: TextStyl.button(context)?.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
                               children: [
                                 TextSpan(
                                   text: " Login",
-                                  style: TextStyl.button(context)?.copyWith(
-                                      color: Theme.of(context).primaryColor),
+                                  style: TextStyl.button(context)?.copyWith(color: Theme.of(context).primaryColor),
                                 ),
                               ],
                             ),

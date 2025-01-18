@@ -26,6 +26,7 @@ class RegisterController extends AppController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController firstNameInput = TextEditingController();
   final TextEditingController lastNameInput = TextEditingController();
+  final TextEditingController usernameInput = TextEditingController();
   final TextEditingController emailInput = TextEditingController();
   final TextEditingController phoneInput = TextEditingController();
   final TextEditingController referralInput = TextEditingController();
@@ -38,20 +39,21 @@ class RegisterController extends AppController {
 
     try {
       Map<String, dynamic> body = UserModel(
-        name: firstNameInput.text,
+        name: "${firstNameInput.text} ${lastNameInput.text}",
         email: emailInput.text,
         password: passwordInput.text,
         phone: phoneInput.text,
+        username: usernameInput.text,
       ).toJson();
 
       /// Initialize the Service and request server
       _authService.init(client);
 
-      ApiResponse response =
-          await _authService.register(body: body, client: client);
+      ApiResponse response = await _authService.register(client: client, body: body);
 
       if (response.hasError()) {
         Toastr.show(message: "${response.message}");
+        _authService.close(client);
         return;
       }
 
@@ -62,7 +64,7 @@ class RegisterController extends AppController {
       loginController.passwordInput.text = passwordInput.text;
 
       /// Login the user after registration
-      await loginController.submit();
+      await loginController.attempt();
     } on Exception catch (e) {
       Get.to(() => ErrorPage(message: e.toString()));
     }
