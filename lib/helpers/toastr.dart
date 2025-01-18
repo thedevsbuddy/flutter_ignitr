@@ -5,7 +5,9 @@ import 'helpers.dart';
 
 class Toastr {
   /// Success
-  static void success({required String message, Duration duration = const Duration(seconds: 3)}) {
+  static void success(
+      {required String message,
+      Duration duration = const Duration(seconds: 3)}) {
     Get.snackbar(
       "Success!",
       Str.of(message).ucFirst(),
@@ -20,7 +22,9 @@ class Toastr {
   }
 
   /// Error
-  static void error({required String message, Duration duration = const Duration(seconds: 3)}) {
+  static void error(
+      {required String message,
+      Duration duration = const Duration(seconds: 3)}) {
     Get.snackbar(
       "Error!",
       Str.of(message).ucFirst(),
@@ -35,7 +39,9 @@ class Toastr {
   }
 
   /// Info
-  static void info({required String message, Duration duration = const Duration(seconds: 3)}) {
+  static void info(
+      {required String message,
+      Duration duration = const Duration(seconds: 3)}) {
     Get.snackbar(
       "Info!",
       Str.of(message).ucFirst(),
@@ -50,7 +56,9 @@ class Toastr {
   }
 
   /// Warning
-  static void warning({required String message, Duration duration = const Duration(seconds: 3)}) {
+  static void warning(
+      {required String message,
+      Duration duration = const Duration(seconds: 3)}) {
     Get.snackbar(
       "Warning!",
       Str.of(message).ucFirst(),
@@ -65,7 +73,10 @@ class Toastr {
   }
 
   /// Toast
-  static void show({required String message, Duration duration = const Duration(seconds: 3), SnackPosition position = SnackPosition.BOTTOM}) {
+  static void show(
+      {required String message,
+      Duration duration = const Duration(seconds: 3),
+      SnackPosition position = SnackPosition.BOTTOM}) {
     Get.snackbar(
       "",
       "",

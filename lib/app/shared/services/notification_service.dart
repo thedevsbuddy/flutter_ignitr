@@ -2,15 +2,14 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationService {
   //Handle displaying of notifications.
-  static final NotificationService _notificationService =
-      NotificationService._internal();
+  static final NotificationService instance = NotificationService._internal();
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
   final AndroidInitializationSettings _androidInitializationSettings =
       const AndroidInitializationSettings('ic_launcher');
 
   factory NotificationService() {
-    return _notificationService;
+    return instance;
   }
 
   NotificationService._internal() {

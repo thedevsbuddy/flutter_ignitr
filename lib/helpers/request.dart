@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:path_provider/path_provider.dart';
 
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
 
 import '../../config/config.dart';
 import '../app/models/api_response.dart';
@@ -39,9 +39,7 @@ class Request {
     }
   }
 
-  ///====================
   /// GET Request
-  ///====================
   Future<dynamic> get(String url,
       {required String client,
       Map<String, dynamic>? params,
@@ -56,9 +54,7 @@ class Request {
     return _processResponse(response);
   }
 
-  ///====================
   /// POST Request
-  ///====================
   Future<dynamic> post(String url,
       {required String client,
       Map<String, dynamic>? params,
@@ -77,9 +73,8 @@ class Request {
     return _processResponse(response);
   }
 
-  ///====================
   /// MULTIPART Request
-  ///====================
+
   Future<dynamic> multipart(String url,
       {String method = 'POST',
       required String client,
@@ -128,9 +123,8 @@ class Request {
     return _processResponse(response);
   }
 
-  ///====================
   /// PUT Request
-  ///====================
+
   Future<dynamic> put(String url,
       {required String client,
       Map<String, dynamic>? params,
@@ -149,9 +143,8 @@ class Request {
     return _processResponse(response);
   }
 
-  ///====================
   /// DELETE Request
-  ///====================
+
   Future<dynamic> delete(String url,
       {required String client,
       Map<String, dynamic>? params,
@@ -171,9 +164,8 @@ class Request {
     return _processResponse(response);
   }
 
-  ///====================
   /// DOWNLOAD [File] Request
-  ///====================
+
   Future<dynamic> download(String url,
       {required String client,
       String? fileName,
@@ -191,11 +183,10 @@ class Request {
     return _file;
   }
 
-  ///======================================
   /// Prepare Header for requests
   ///
   /// @var bool token = true
-  ///======================================
+
   static Map<String, String> _getHeaders(
       {bool token = true, Map<String, String>? userHeaders}) {
     Map<String, String> headers = {
@@ -216,9 +207,8 @@ class Request {
     return headers;
   }
 
-  ///======================
   /// Process the Response
-  ///======================
+
   static dynamic _processResponse(http.Response response) {
     ApiResponse body = ApiResponse.fromJson(jsonDecode(response.body));
     switch (response.statusCode) {
@@ -241,9 +231,8 @@ class Request {
     }
   }
 
-  ///======================
   /// Sanitize the API uri
-  ///======================
+
   static dynamic _sanitizedUri(String uri, Map<String, dynamic>? params) {
     if (uri[0] != "/") {
       uri = "/$uri${_handleParams(params)}";
@@ -253,9 +242,8 @@ class Request {
     return Uri.parse("${Config.apiBaseUrl}$uri");
   }
 
-  ///======================
   /// Parse the url parameters
-  ///======================
+
   static String _handleParams(Map<String, dynamic>? params) {
     String _params = '';
 

@@ -19,6 +19,9 @@ void main() async {
   /// Initialize the storage
   await GetStorage.init();
 
+  /// Initialize [InternetService]
+  Get.put<InternetService>(InternetService());
+
   /// Initialize [Auth]
   Get.put<Auth>(Auth(), permanent: true);
 

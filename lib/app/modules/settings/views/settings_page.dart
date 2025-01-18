@@ -11,141 +11,168 @@ class SettingsPage extends StatelessWidget {
     return GetBuilder<SettingsController>(
       init: SettingsController(),
       builder: (SettingsController controller) {
-        return !controller.isConnected
-            ? NotConnectedErrorPage()
-            : controller.isBusy
-                ? LoadingIconWidget(message: "Please wait...")
-                : MasterLayout(
-                    title: "Settings",
-                    body: SafeArea(
-                      child: Padding(
-                        padding: EdgeInsets.all(kSpacer3),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+        return controller.isBusy
+            ? LoadingIconWidget(message: "Please wait...")
+            : MasterLayout(
+                title: "Settings",
+                body: SafeArea(
+                  child: Padding(
+                    padding: EdgeInsets.all(kSpacer3),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Theme",
+                          style: TextStyl.bodySm(context),
+                        ),
+                        Row(
                           children: [
-                            Text(
-                              "Theme",
-                              style: TextStyl.bodySm(context),
-                            ),
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: InkWell(
-                                    splashFactory: NoSplash.splashFactory,
-                                    onTap: () => controller.changeTheme(context, "system"),
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(vertical: 16),
-                                      decoration: BoxDecoration(
-                                        color: Theme.of(context).colorScheme.surface,
-                                        borderRadius: BorderRadius.circular(8),
-                                        border: Border.all(color: controller.selectedTheme == 'system' ? AppColors.accent(context) : Colors.transparent, width: 2),
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          Icon(Icons.brightness_4_rounded, size: 32),
-                                          Text(
-                                            'System',
-                                            style: TextStyl.bodySm(context),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
+                            Expanded(
+                              child: InkWell(
+                                splashFactory: NoSplash.splashFactory,
+                                onTap: () =>
+                                    controller.changeTheme(context, "system"),
+                                child: Container(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16),
+                                  decoration: BoxDecoration(
+                                    color:
+                                        Theme.of(context).colorScheme.surface,
+                                    borderRadius: BorderRadius.circular(8),
+                                    border: Border.all(
+                                        color:
+                                            controller.selectedTheme == 'system'
+                                                ? AppColors.accent(context)
+                                                : Colors.transparent,
+                                        width: 2),
                                   ),
-                                ),
-                                SizedBox(width: kSpacer2),
-                                Expanded(
-                                  child: InkWell(
-                                    splashFactory: NoSplash.splashFactory,
-                                    onTap: () => controller.changeTheme(context, "light"),
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(vertical: 16),
-                                      decoration: BoxDecoration(
-                                        color: Theme.of(context).colorScheme.surface,
-                                        borderRadius: BorderRadius.circular(8),
-                                        border: Border.all(color: controller.selectedTheme == 'light' ? AppColors.accent(context) : Colors.transparent, width: 2),
+                                  child: Column(
+                                    children: [
+                                      Icon(Icons.brightness_4_rounded,
+                                          size: 32),
+                                      Text(
+                                        'System',
+                                        style: TextStyl.bodySm(context),
                                       ),
-                                      child: Column(
-                                        children: [
-                                          Icon(Icons.brightness_5_rounded, size: 32),
-                                          Text(
-                                            'Light',
-                                            style: TextStyl.bodySm(context),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
+                                    ],
                                   ),
-                                ),
-                                SizedBox(width: kSpacer2),
-                                Expanded(
-                                  child: InkWell(
-                                    splashFactory: NoSplash.splashFactory,
-                                    onTap: () => controller.changeTheme(context, "dark"),
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(vertical: 16),
-                                      decoration: BoxDecoration(
-                                        color: Theme.of(context).colorScheme.surface,
-                                        borderRadius: BorderRadius.circular(8),
-                                        border: Border.all(color: controller.selectedTheme == 'dark' ? AppColors.accent(context) : Colors.transparent, width: 2),
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          Icon(Icons.brightness_2_rounded, size: 32),
-                                          Text(
-                                            'Dark',
-                                            style: TextStyl.bodySm(context),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            const SizedBox(height: kSpacer),
-                            Text(
-                              "Account",
-                              style: TextStyl.bodySm(context),
-                            ),
-                            const SizedBox(height: kSpacer1),
-                            InkWell(
-                              splashFactory: NoSplash.splashFactory,
-                              onTap: () => Get.toNamed(ProfileRoutes.profile),
-                              child: Container(
-                                width: double.maxFinite,
-                                decoration: BoxDecoration(
-                                  color: AppColors.secondarySurface(context),
-                                  borderRadius: BorderRadius.circular(kSpacer2),
-                                ),
-                                padding: EdgeInsets.symmetric(vertical: kSpacer3, horizontal: kSpacer),
-                                child: Text(
-                                  "Profile",
-                                  style: TextStyl.button(context),
                                 ),
                               ),
                             ),
-                            const SizedBox(height: kSpacer1),
-                            InkWell(
-                              onTap: auth.logout,
-                              splashFactory: NoSplash.splashFactory,
-                              child: Container(
-                                width: double.maxFinite,
-                                decoration: BoxDecoration(
-                                  color: AppColors.secondarySurface(context),
-                                  borderRadius: BorderRadius.circular(kSpacer2),
-                                ),
-                                padding: EdgeInsets.symmetric(vertical: kSpacer3, horizontal: kSpacer),
-                                child: Text(
-                                  "Logout",
-                                  style: TextStyl.button(context),
+                            SizedBox(width: kSpacer2),
+                            Expanded(
+                              child: InkWell(
+                                splashFactory: NoSplash.splashFactory,
+                                onTap: () =>
+                                    controller.changeTheme(context, "light"),
+                                child: Container(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16),
+                                  decoration: BoxDecoration(
+                                    color:
+                                        Theme.of(context).colorScheme.surface,
+                                    borderRadius: BorderRadius.circular(8),
+                                    border: Border.all(
+                                        color:
+                                            controller.selectedTheme == 'light'
+                                                ? AppColors.accent(context)
+                                                : Colors.transparent,
+                                        width: 2),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Icon(Icons.brightness_5_rounded,
+                                          size: 32),
+                                      Text(
+                                        'Light',
+                                        style: TextStyl.bodySm(context),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
+                            SizedBox(width: kSpacer2),
+                            Expanded(
+                              child: InkWell(
+                                splashFactory: NoSplash.splashFactory,
+                                onTap: () =>
+                                    controller.changeTheme(context, "dark"),
+                                child: Container(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16),
+                                  decoration: BoxDecoration(
+                                    color:
+                                        Theme.of(context).colorScheme.surface,
+                                    borderRadius: BorderRadius.circular(8),
+                                    border: Border.all(
+                                        color:
+                                            controller.selectedTheme == 'dark'
+                                                ? AppColors.accent(context)
+                                                : Colors.transparent,
+                                        width: 2),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Icon(Icons.brightness_2_rounded,
+                                          size: 32),
+                                      Text(
+                                        'Dark',
+                                        style: TextStyl.bodySm(context),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            )
                           ],
                         ),
-                      ),
+                        const SizedBox(height: kSpacer),
+                        Text(
+                          "Account",
+                          style: TextStyl.bodySm(context),
+                        ),
+                        const SizedBox(height: kSpacer1),
+                        InkWell(
+                          splashFactory: NoSplash.splashFactory,
+                          onTap: () => Get.toNamed(ProfileRoutes.profile),
+                          child: Container(
+                            width: double.maxFinite,
+                            decoration: BoxDecoration(
+                              color: AppColors.secondarySurface(context),
+                              borderRadius: BorderRadius.circular(kSpacer2),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                vertical: kSpacer3, horizontal: kSpacer),
+                            child: Text(
+                              "Profile",
+                              style: TextStyl.button(context),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: kSpacer1),
+                        InkWell(
+                          onTap: auth.logout,
+                          splashFactory: NoSplash.splashFactory,
+                          child: Container(
+                            width: double.maxFinite,
+                            decoration: BoxDecoration(
+                              color: AppColors.secondarySurface(context),
+                              borderRadius: BorderRadius.circular(kSpacer2),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                vertical: kSpacer3, horizontal: kSpacer),
+                            child: Text(
+                              "Logout",
+                              style: TextStyl.button(context),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  );
+                  ),
+                ),
+              );
       },
     );
   }

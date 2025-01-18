@@ -1,24 +1,25 @@
 import '../../../models/api_response.dart';
 import 'package:get/get.dart';
 
+import '../../../shared/shared.dart';
 import 'api_profile_service.dart';
 import 'local_profile_service.dart';
 
-abstract class ProfileService {
-  /// Configure if Mock is enabled or not @accepts[true|false]
-  static const mockEnabled = true;
+abstract class ProfileService extends BaseService {
+  /// Define if this is in dev mode
+  static const bool devMode = true;
 
   /// Create and get the instance of [ProfileService]
   static ProfileService get instance {
-    if (!Get.isRegistered<ProfileService>()) Get.lazyPut<ProfileService>(() => mockEnabled ? LocalProfileService() : ApiProfileService());
+    if (!Get.isRegistered<ProfileService>())
+      Get.lazyPut<ProfileService>(() {
+        InternetService internetService = InternetService.instance;
+        if (devMode) return LocalProfileService();
+        if (!internetService.isConnected) return LocalProfileService();
+        return ApiProfileService();
+      });
     return Get.find<ProfileService>();
   }
-
-  /// Start the server request
-  void init(String client);
-
-  /// Stop the server request
-  void close(String client);
 
   /// Do Something
   Future<ApiResponse> getData();

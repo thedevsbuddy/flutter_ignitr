@@ -5,7 +5,6 @@ import 'settings_service.dart';
 class ApiSettingsService extends BaseService implements SettingsService {
   @override
   Future<ApiResponse> doSomething() async {
-    // TODO: implement googleLogin
     throw UnimplementedError();
   }
 }

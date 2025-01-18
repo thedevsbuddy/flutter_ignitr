@@ -25,7 +25,8 @@ class LoadingIconWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 boxShadow: [
                   BoxShadow(
-                      color: Colors.black.withAlpha(alpha(0.15)), blurRadius: 5),
+                      color: Colors.black.withAlpha(alpha(0.15)),
+                      blurRadius: 5),
                 ],
               ),
               child: Column(

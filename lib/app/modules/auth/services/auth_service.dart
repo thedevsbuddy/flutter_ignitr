@@ -1,26 +1,25 @@
 import 'package:get/get.dart';
 
-import '../../../models/api_response.dart';
+import '../../../models/models.dart';
+import '../../../shared/shared.dart';
 import 'api_auth_service.dart';
 import 'local_auth_service.dart';
 
-abstract class AuthService {
-  /// Configure if Mock is enabled or not
-  static const mockEnabled = true;
+abstract class AuthService extends BaseService {
+  /// Define if this is in dev mode
+  static const bool devMode = true;
 
   /// Create and get the instance of [AuthService]
   static AuthService get instance {
     if (!Get.isRegistered<AuthService>())
-      Get.lazyPut<AuthService>(
-          () => mockEnabled ? LocalAuthService() : ApiAuthService());
+      Get.lazyPut<AuthService>(() {
+        InternetService internetService = InternetService.instance;
+        if (devMode) return LocalAuthService();
+        if (!internetService.isConnected) return LocalAuthService();
+        return ApiAuthService();
+      });
     return Get.find<AuthService>();
   }
-
-  /// Start the server request
-  void init(String client);
-
-  /// Stop the server request
-  void close(String client);
 
   /// Login the user
   Future<ApiResponse> login(
@@ -33,13 +32,4 @@ abstract class AuthService {
   /// Verifies OTP
   Future<ApiResponse> verifyOtp(
       {required String client, required Map<String, dynamic> body});
-
-  /// Login user with Google
-  Future<ApiResponse> google({required String client});
-
-  /// Login user with Github
-  Future<ApiResponse> github({required String client});
-
-  /// Login user with Facebook
-  Future<ApiResponse> facebook({required String client});
 }

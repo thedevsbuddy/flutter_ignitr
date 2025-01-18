@@ -1,48 +1,28 @@
-import 'dart:async';
-
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../../helpers/helpers.dart';
+import '../shared.dart';
 
 class AppController extends GetxController {
   ScrollController scrollController = ScrollController(keepScrollOffset: false);
 
+  /// Get instance of [InternetService]
+  InternetService internetService = InternetService.instance;
+
   /// Observables
   RxBool setSticky = false.obs;
   bool _isBusy = false;
-  bool _isConnected = false;
 
   /// Getters
   bool get isSticky => this.setSticky.value;
 
   bool get isBusy => this._isBusy;
 
-  bool get isConnected => this._isConnected;
-
-  /// StreamSubscription for ConnectivityResult
-  /// ```dart
-  /// StreamSubscription<ConnectivityResult>
-  /// ```
-  late StreamSubscription<List<ConnectivityResult>> connectivitySubscription;
-
   @override
   void onInit() {
     super.onInit();
-    this.checkConnection();
-    connectivitySubscription = Connectivity()
-        .onConnectivityChanged
-        .listen((List<ConnectivityResult> connectivityResult) {
-      if (connectivityResult.contains(ConnectivityResult.none)) {
-        _isConnected = false;
-      } else {
-        _isConnected = true;
-        onReconnect();
-      }
-      update();
-    });
     scrollController.addListener(() {
       onScroll();
     });
@@ -54,26 +34,6 @@ class AppController extends GetxController {
     } else {
       setSticky(false);
     }
-  }
-
-  /// Executes when user re-connect to any network.
-  /// ```
-  /// [Cellular Data | WiFi]
-  /// ```
-  void onReconnect() {
-    /// TODO: Implement onReconnect Method
-  }
-
-  /// Checks User connection state.
-  void checkConnection() async {
-    var connectivityResult = await (Connectivity().checkConnectivity());
-
-    if (connectivityResult == ConnectivityResult.none) {
-      _isConnected = false;
-    } else {
-      _isConnected = true;
-    }
-    update();
   }
 
   /// Set the busy state
@@ -122,7 +82,6 @@ class AppController extends GetxController {
   @override
   void onClose() {
     scrollController.dispose();
-    connectivitySubscription.cancel();
     super.onClose();
   }
 }

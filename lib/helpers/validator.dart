@@ -57,7 +57,8 @@ class Validator {
   /// Rule: `isEqual`
   Validator isEqual(dynamic val, String fieldMatchWith) {
     if (value != val) {
-      errors.assign(field, "${Str.of(fieldMatchWith).ucFirst()} and ${Str.of(field).ucFirst()} doesn't match!");
+      errors.assign(field,
+          "${Str.of(fieldMatchWith).ucFirst()} and ${Str.of(field).ucFirst()} doesn't match!");
     }
     return this;
   }
@@ -73,7 +74,8 @@ class Validator {
   /// Rule: `min`
   Validator min(int minLength) {
     if (value.length < minLength) {
-      errors.assign(field, "${Str.of(field).ucFirst()} must be $minLength character!");
+      errors.assign(
+          field, "${Str.of(field).ucFirst()} must be $minLength character!");
     }
     return this;
   }
@@ -81,7 +83,8 @@ class Validator {
   /// Rule: `max`
   Validator max(int maxLength) {
     if (GetUtils.isLengthGreaterThan(value, maxLength)) {
-      errors.assign(field, "${Str.of(field).ucFirst()} must be less than or equal to $maxLength character!");
+      errors.assign(field,
+          "${Str.of(field).ucFirst()} must be less than or equal to $maxLength character!");
     }
     return this;
   }
@@ -89,7 +92,8 @@ class Validator {
   /// Rule: `between`
   Validator between(int minLength, int maxLength) {
     if (!GetUtils.isLengthBetween(value, minLength, maxLength)) {
-      errors.assign(field, "${Str.of(field).ucFirst()} must be between $minLength and $maxLength character!");
+      errors.assign(field,
+          "${Str.of(field).ucFirst()} must be between $minLength and $maxLength character!");
     }
     return this;
   }
@@ -97,7 +101,8 @@ class Validator {
   /// Rule: `specialCharacter`
   Validator specialCharacter({String? allowed}) {
     if (value.contains(RegExp(r'[\s\-$&+,:;=?@#|<>\.^*()%!\\]'))) {
-      errors.assign(field, "${Str.of(field).ucFirst()} not allow any special character except underscores (_)");
+      errors.assign(field,
+          "${Str.of(field).ucFirst()} not allow any special character except underscores (_)");
     }
     return this;
   }

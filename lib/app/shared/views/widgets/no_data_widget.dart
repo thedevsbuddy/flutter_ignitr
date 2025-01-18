@@ -4,7 +4,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../helpers/helpers.dart';
 
 class NoDataWidget extends StatelessWidget {
-  NoDataWidget({Key? key, this.message = 'No Data Yet!', this.action, this.showTitle = true, this.title = 'Oops!', this.icon}) : super(key: key);
+  NoDataWidget(
+      {Key? key,
+      this.message = 'No Data Yet!',
+      this.action,
+      this.showTitle = true,
+      this.title = 'Oops!',
+      this.icon})
+      : super(key: key);
 
   final String message;
   final String title;
@@ -32,9 +39,11 @@ class NoDataWidget extends StatelessWidget {
                     ),
                   ),
             const SizedBox(height: kSpacer),
-            if (showTitle) Text('$title', style: Theme.of(context).textTheme.displaySmall),
+            if (showTitle)
+              Text('$title', style: Theme.of(context).textTheme.displaySmall),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32.0).copyWith(top: 8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 32.0)
+                  .copyWith(top: 8.0),
               child: Text(
                 '$message',
                 style: Theme.of(context).textTheme.titleMedium,

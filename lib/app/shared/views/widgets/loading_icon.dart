@@ -5,12 +5,15 @@ class LoadingIcon extends StatelessWidget {
   final Color? color;
   final bool circular;
 
-  LoadingIcon({Key? key, this.height, this.color, this.circular = false}) : super(key: key);
+  LoadingIcon({Key? key, this.height, this.color, this.circular = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      circular ?'assets/icons/loading-circular.gif' : 'assets/icons/loading.gif',
+      circular
+          ? 'assets/icons/loading-circular.gif'
+          : 'assets/icons/loading.gif',
       height: height ?? 14.0,
       color: color ?? null,
     );

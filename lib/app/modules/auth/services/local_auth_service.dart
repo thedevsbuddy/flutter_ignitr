@@ -4,16 +4,12 @@ import '../../../../data/auth_data.dart';
 import '../../../../data/users_data.dart';
 import '../../../models/api_response.dart';
 import '../../../models/user_model.dart';
+import '../../../shared/shared.dart';
 import 'auth_service.dart';
 
-class LocalAuthService implements AuthService {
-  /// Start the server request
+class LocalAuthService extends BaseService implements AuthService {
   @override
-  void init(String client) {}
-
-  /// Stop the server request
-  @override
-  void close(String client) {}
+  String? tableName = 'users';
 
   @override
   Future<ApiResponse> login(
@@ -36,24 +32,6 @@ class LocalAuthService implements AuthService {
 
       return AuthData.loginSuccess;
     });
-  }
-
-  @override
-  Future<ApiResponse> google({required String client}) {
-    // TODO: implement googleLogin
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<ApiResponse> facebook({required String client}) {
-    // TODO: implement facebook
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<ApiResponse> github({required String client}) {
-    // TODO: implement github
-    throw UnimplementedError();
   }
 
   @override

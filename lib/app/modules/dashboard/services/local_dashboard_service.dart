@@ -4,8 +4,10 @@ import 'dashboard_service.dart';
 
 class LocalDashboardService extends BaseService implements DashboardService {
   @override
+  String? tableName = 'dashboard';
+
+  @override
   Future<ApiResponse> doSomething({required String client}) async {
-    // TODO: implement googleLogin
-    throw UnimplementedError();
+    return ApiResponse(data: 'Local Data');
   }
 }

@@ -1,15 +1,8 @@
 import '../../../models/api_response.dart';
+import '../../../shared/services/services.dart';
 import 'profile_service.dart';
 
-class LocalProfileService implements ProfileService {
-  /// Start the server request
-  @override
-  void init(String client) => null;
-
-  /// Stop the server request
-  @override
-  void close(String client) => null;
-
+class LocalProfileService extends BaseService implements ProfileService {
   @override
   Future<ApiResponse> getData() async {
     return ApiResponse(data: 'Local Data');

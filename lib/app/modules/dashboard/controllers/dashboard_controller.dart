@@ -16,6 +16,7 @@ class DashboardController extends AppController {
   @override
   void onInit() {
     super.onInit();
+    getData();
   }
 
   Future<void> getData() async {
