@@ -10,7 +10,7 @@ import 'app/shared/shared.dart';
 import 'config/config.dart';
 import 'config/common/app_http_overrides.dart';
 import 'config/theme/app_theme.dart';
-import 'routes/routes.dart';
+import 'routes/router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
