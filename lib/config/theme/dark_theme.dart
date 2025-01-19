@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../helpers/helpers.dart';
 import '../config.dart';
-import 'color_palette.dart';
 
 /// Input Border
 OutlineInputBorder _inputBorder([Color? color]) {
@@ -27,8 +26,7 @@ InputDecorationTheme _inputTheme() {
       fontSize: 14,
       color: kcSlate.shade100.withAlpha(alpha(0.5)),
     ),
-    contentPadding:
-        const EdgeInsets.symmetric(vertical: kSpacer3, horizontal: kSpacer4),
+    contentPadding: const EdgeInsets.symmetric(vertical: kSpacer3, horizontal: kSpacer4),
     border: _inputBorder(),
     enabledBorder: _inputBorder(),
     focusedBorder: _inputBorder(),

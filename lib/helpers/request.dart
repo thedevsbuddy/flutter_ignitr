@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
 import '../../config/config.dart';
-import '../app/models/api_response.dart';
+import '../app/shared/models/api_response.dart';
 import 'helpers.dart';
 
 class Request {
