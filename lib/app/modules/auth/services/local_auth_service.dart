@@ -7,7 +7,7 @@ import 'auth_service.dart';
 
 class LocalAuthService extends BaseService implements AuthService {
   @override
-  String? tableName = 'users';
+  String? database = 'users';
 
   @override
   Future<ApiResponse> login({required String client, required Map<String, dynamic> body}) async {

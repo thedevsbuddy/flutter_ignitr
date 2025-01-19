@@ -4,7 +4,7 @@ import 'dashboard_service.dart';
 
 class LocalDashboardService extends BaseService implements DashboardService {
   @override
-  String? tableName = 'dashboard';
+  String? database = 'dashboard';
 
   @override
   Future<ApiResponse> doSomething({required String client}) async {

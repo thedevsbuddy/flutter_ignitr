@@ -9,13 +9,13 @@ class BaseService {
   late Database db;
 
   @mustCallSuper
-  String? tableName;
+  String? database;
 
   /// Instantiate Service
   BaseService() {
     api = Request();
-    if (tableName != null) db = Database(tableName!);
-    print("Initializing ${tableName} Table File");
+    if (database != null) db = Database(database!);
+    print("Initializing ${database} Table File");
   }
 
   /// Start the server [Request]
