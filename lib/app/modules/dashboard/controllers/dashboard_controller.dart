@@ -1,13 +1,12 @@
 import 'package:get/get.dart';
 
-import '../../../shared/controllers/app_controller.dart';
-import '../../../shared/views/errors/errors.dart';
+import '../../../../helpers/helpers.dart';
+import '../../../shared/shared.dart';
 import '../../modules.dart';
 
 class DashboardController extends AppController {
   static DashboardController get instance {
-    if (!Get.isRegistered<DashboardController>())
-      Get.put(DashboardController());
+    if (!Get.isRegistered<DashboardController>()) Get.put(DashboardController());
     return Get.find<DashboardController>();
   }
 
@@ -22,8 +21,18 @@ class DashboardController extends AppController {
   Future<void> getData() async {
     try {
       String _client = 'dashboard-get-data';
+      setBusy(true);
       _dashboardService.init(_client);
-      await _dashboardService.doSomething(client: _client);
+      ApiResponse response = await _dashboardService.getData(client: _client);
+      if (response.hasError()) {
+        Toastr.error(message: "${response.message}");
+        _dashboardService.close(_client);
+        setBusy(false);
+        return;
+      }
+      print(response.data);
+      setBusy(false);
+      update();
       _dashboardService.close(_client);
     } on Exception catch (e) {
       Get.to(() => ErrorPage(message: "$e"));
