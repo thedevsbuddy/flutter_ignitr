@@ -1,5 +1,6 @@
 import '../../app/shared/models/app_color_model.dart';
 import '../../helpers/helpers.dart';
+import 'color_palette.dart';
 
 /// [lightColors] returns [AppColorModel] containing light theme colors
 final AppColorModel lightColors = AppColorModel(

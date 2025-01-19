@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import '../../../config/config.dart';
 import '../../../helpers/helpers.dart';
 import '../shared.dart';
 

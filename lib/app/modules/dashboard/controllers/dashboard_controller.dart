@@ -6,8 +6,7 @@ import '../../modules.dart';
 
 class DashboardController extends AppController {
   static DashboardController get instance {
-    if (!Get.isRegistered<DashboardController>())
-      Get.put(DashboardController());
+    if (!Get.isRegistered<DashboardController>()) Get.put(DashboardController());
     return Get.find<DashboardController>();
   }
 
@@ -24,6 +23,7 @@ class DashboardController extends AppController {
       String _client = 'dashboard-get-data';
       _dashboardService.init(_client);
       await _dashboardService.doSomething(client: _client);
+      _dashboardService.close(_client);
     } on Exception catch (e) {
       Get.to(() => ErrorPage(message: "$e"));
     } on Error catch (e) {

@@ -5,11 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'helpers/helpers.dart';
 import 'app/shared/shared.dart';
 import 'config/config.dart';
-import 'config/common/app_http_overrides.dart';
-import 'config/theme/app_theme.dart';
+import 'helpers/helpers.dart';
 import 'routes/router.dart';
 
 void main() async {
@@ -35,9 +33,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarColor: Theme.of(context).brightness == Brightness.dark
-            ? AppColors.light.primarySurface
-            : AppColors.dark.primarySurface,
+        statusBarColor: Theme.of(context).brightness == Brightness.dark ? AppColors.light.primarySurface : AppColors.dark.primarySurface,
         statusBarBrightness: Theme.of(context).brightness,
       ),
     );

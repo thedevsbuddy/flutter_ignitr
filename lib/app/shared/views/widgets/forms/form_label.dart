@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../config/config.dart';
 import '../../../../../helpers/helpers.dart';
 
 class FormLabel extends StatelessWidget {
@@ -12,8 +13,7 @@ class FormLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       "$label",
-      style:
-          TextStyl.label(context)?.copyWith(color: color ?? kcSlate.shade600),
+      style: TextStyl.label(context)?.copyWith(color: color ?? kcSlate.shade600),
     );
   }
 }

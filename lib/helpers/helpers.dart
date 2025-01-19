@@ -1,4 +1,3 @@
-export 'color_palette.dart';
 export 'keyboard.dart';
 export 'sizes.dart';
 export 'str.dart';

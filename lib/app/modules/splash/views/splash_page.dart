@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../config/config.dart';
 import '../../../../helpers/helpers.dart';
 import '../../../shared/shared.dart';
 import '../controllers/splash_controller.dart';
@@ -33,8 +34,7 @@ class SplashPage extends StatelessWidget {
             Spacer(),
             Padding(
               padding: const EdgeInsets.only(bottom: 32.0),
-              child: LoadingIcon(
-                  height: kSpacer, color: AppColors.accent(context)),
+              child: LoadingIcon(height: kSpacer, color: AppColors.accent(context)),
             ),
           ],
         ),
