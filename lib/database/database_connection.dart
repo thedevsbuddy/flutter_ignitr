@@ -84,7 +84,8 @@ class DatabaseConnection {
   }
 
   // Apply pagination (limit and offset)
-  Future<List<Map<String, dynamic>>> paginate([int perPage = 10, int page = 1]) async {
+  Future<List<Map<String, dynamic>>> paginate(
+      [int perPage = 10, int page = 1]) async {
     _limit = perPage;
     _offset = _limit! * (page - 1);
     List<Map<String, dynamic>> data = await loadData();

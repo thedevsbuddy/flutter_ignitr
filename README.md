@@ -1,8 +1,6 @@
 # FlutterFusion
 
-A starter project to begin any new flutter project.
-It has the `GetX` package and some more custom helpers and packages to help the dev to build their apps with ease.
-It uses the `MVC` pattern which is one of the best pattern among developers.
+This starter project is designed to kickstart any new Flutter project effortlessly. It comes preconfigured with the `GetX` package, along with custom helpers and additional packages, to streamline app development. Following the `MVC` pattern, which is widely regarded as one of the best architectural patterns among developers, it ensures a clean separation of concerns and a solid foundation for building robust applications.
 
 ### Getting Started
 
@@ -14,12 +12,12 @@ git clone https://github.com/thedevsbuddy/flutter_fusion.git my_awesome_project
 
 ### Features
 
-Here are some awesome features which you will get by default when scaffolding your project with this starting project.
+Here are some fantastic features you’ll get by default when scaffolding your project with this starter template:
 
-- **MVCs Pattern**: We are using `MVC` pattern to manage whole project easily as it separates the Logic and UI and models. But i added new layer as Service which will help us communicate with APIs.
-- **Modular Structure**: Most of the developers are the fan of Modular Structure as it gives the flexibility to use a module on any project we build.
-- **Module Generator Tool**: I have built a simple module generator tool to help you generate any module with just a single command.
-- **Mock-Able Services**: Sometimes we don't have any api to test and build our apps so we need to do some mockups for apps here we cover that as well.
+- **MVC Pattern**: The project follows the `MVC` pattern, which separates logic, UI, and models for better manageability. Additionally, a new service layer has been introduced to facilitate communication with APIs.
+- **Modular Structure**: The modular structure allows developers to reuse modules across different projects, offering greater flexibility and scalability.
+- **Module Generator**: A simple module generator tool has been added, enabling you to generate any module with a single command.
+- **Local File Database**: This project includes a local file database, allowing you to create a data file for each local service and use it to store data efficiently.
 
 ## New features
 
@@ -66,35 +64,21 @@ This will generate all the files required for a `Module`
 └── 📄 blog_module.dart
 ```
 
-### Generate Controller
+### Generate Page/View
 
 ```shell
-dart pub run modulr:controller Comment --on=Blog
+dart pub run modulr:page Comment --on=blog
 ```
 
-This will generate the new controller (`comment_controller.dart`) inside the `Blog` Module.
+This will generate the new view/page (`comment_page.dart`) along with it's controller (`comment_controller.dart`) file inside the `Blog` Module.
 
-#### Generated files (including previously generated controllers)
+#### Generated files (including previously generated views)
 
 ```txt
 📂 blog
 ├── 📂 controllers
 │   ├── 📄 blog_controller.dart
 │   └── 📄 comment_controller.dart
-```
-
-### Generate Page/View
-
-```shell
-flutter pub run modulr:page Comment --on=Blog
-```
-
-This will generate the new view/page (`comment_page.dart`) file inside the `Blog` Module.
-
-#### Generated files (including previously generated views)
-
-```txt
-📂 blog
 ├── 📂 views
 │   └── 📄 blog_page.dart
 │   └── 📄 comment_page.dart
@@ -104,6 +88,6 @@ This will generate the new view/page (`comment_page.dart`) file inside the `Blog
 
 ## Theme Builder
 
-ThemeBuilder is a helper Widget created to easily manage light and dark theme for your application.
+ThemeBuilder is a helper widget designed to simplify managing light and dark themes in your application.
 
-If you want to provide theming feature on your application you can select this project with ThemeBuilder so it will come with the necessary code to manage light and dark theme.
+If you want to add theming functionality to your app, this project includes ThemeBuilder, providing all the necessary code to seamlessly handle light and dark theme management.

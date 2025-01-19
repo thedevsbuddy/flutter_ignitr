@@ -484,8 +484,8 @@ packages:
     dependency: "direct dev"
     description:
       path: "."
-      ref: "v0.1.2"
-      resolved-ref: "77054be6345413ba1e2b6aefcd930406b5579b14"
+      ref: "v0.1.3"
+      resolved-ref: a39a30067aa0c106de9ca239cf1552414e9838be
       url: "https://github.com/thedevsbuddy/flutter_modulr.git"
     source: git
     version: "0.0.1"
@@ -593,6 +593,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  pluralize:
+    dependency: transitive
+    description:
+      name: pluralize
+      sha256: caa548d703da7dab4bb77e82eed2698b0d507f6f8fe5f65fe1ab2645468e7872
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.8"
   posix:
     dependency: transitive
     description:

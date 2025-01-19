@@ -14,7 +14,8 @@ class DashboardPage extends StatelessWidget {
       init: DashboardController(),
       builder: (DashboardController controller) {
         /// Show loading icon if busy
-        if (controller.isBusy) return LoadingIconWidget(message: "Please wait...");
+        if (controller.isBusy)
+          return LoadingIconWidget(message: "Please wait...");
 
         return MasterLayout(
           title: "Dashboard",
