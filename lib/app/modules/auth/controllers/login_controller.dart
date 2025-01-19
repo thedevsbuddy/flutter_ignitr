@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../config/config.dart';
 import '../../../../helpers/helpers.dart';
 import '../../../shared/shared.dart';
 import '../../modules.dart';
@@ -38,7 +39,6 @@ class LoginController extends AppController {
 
       /// Call api to login user
       ApiResponse response = await _authService.login(client: client, body: body);
-      // log.w(response.data);
       if (response.hasError()) {
         Toastr.show(message: "${response.message}");
         _authService.close(client);
@@ -52,7 +52,7 @@ class LoginController extends AppController {
       _authService.close(client);
 
       /// Redirect user
-      Get.offAllNamed(DashboardRoutes.dashboard);
+      Get.offAllNamed(Config.homeRoute);
     } on Exception catch (e) {
       Get.to(() => ErrorPage(message: e.toString()));
     }

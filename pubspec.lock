@@ -484,8 +484,8 @@ packages:
     dependency: "direct dev"
     description:
       path: "."
-      ref: "v0.1.0"
-      resolved-ref: d1920845ee36cb8926e3627454ec7851c2495bf6
+      ref: "v0.1.2"
+      resolved-ref: "77054be6345413ba1e2b6aefcd930406b5579b14"
       url: "https://github.com/thedevsbuddy/flutter_modulr.git"
     source: git
     version: "0.0.1"

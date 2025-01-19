@@ -38,7 +38,9 @@ var log = Logger(
 
 /// Generate and get MaterialColor From a Color
 MaterialColor generateMaterialColor(Color color) {
-  return MaterialColor(color.value, {
+  int argbValue = (color.a * 255).toInt() << 24 | color.r.toInt() << 16 | color.g.toInt() << 8 | color.b.toInt();
+
+  return MaterialColor(argbValue, {
     50: _tintColor(color, 0.9),
     100: _tintColor(color, 0.8),
     200: _tintColor(color, 0.6),
