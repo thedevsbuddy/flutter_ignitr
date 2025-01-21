@@ -36,7 +36,7 @@ If you still wants to create a new project manually you can follow the below ste
 Clone this rerepository and run the following command:
 
 ```shell
-git clone https://github.com/devsbuddy/ignitr_template.git
+git clone https://github.com/devsbuddy/flutter_ignitr.git
 ```
 
 ### Features
