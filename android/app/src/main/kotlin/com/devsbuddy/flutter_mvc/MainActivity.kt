@@ -1,4 +1,4 @@
-package com.devsbuddy.flutter_fusion
+package com.devsbuddy.ignitr_template
 
 import io.flutter.embedding.android.FlutterActivity
 

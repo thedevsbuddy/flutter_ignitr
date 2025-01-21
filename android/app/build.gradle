@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.devsbuddy.flutter_fusion"
+    namespace = "com.devsbuddy.ignitr_template"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -22,7 +22,7 @@ android {
 
     defaultConfig {
         multiDexEnabled = true
-        applicationId = "com.devsbuddy.flutter_fusion"
+        applicationId = "com.devsbuddy.ignitr_template"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

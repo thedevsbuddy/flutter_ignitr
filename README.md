@@ -1,13 +1,40 @@
-# FlutterFusion
+# Ignitr
 
-This starter project is designed to kickstart any new Flutter project effortlessly. It comes preconfigured with the `GetX` package, along with custom helpers and additional packages, to streamline app development. Following the `MVC` pattern, which is widely regarded as one of the best architectural patterns among developers, it ensures a clean separation of concerns and a solid foundation for building robust applications.
+This is the official repository for the Ignitr Flutter framework, It provides the basic boilererplate code to start building your next awesome Flutter application.
+
+Ignitr is a simple yet powerful flutter mini framework, designed to simplify the development of Flutter applications. It provides a set of tools and utilities to streamline the process of building Flutter apps, making it easier for developers to create high-quality, feature-rich applications.
 
 ### Getting Started
 
-Clone the repository
+```shell
+dart pub global activate ignitr
+```
+
+### Usage
+
+Above command will install the ignitr cli globally in your system, now you can use the built in Ignitr commands to get started with your project development.
+
+#### Create new Ignitr Project
 
 ```shell
-git clone https://github.com/thedevsbuddy/flutter_fusion.git my_awesome_project
+ignitr create <project_name> --version=<ignitr_version>
+```
+
+- _<project_name>_: This will be the project name you want to generate, it will scaffold a new fresh project with name name provided.
+- _<--version>_: This is optional option to select the Ignitr version to create project with, defaults to the `latest` version.
+
+**NOTE: Please note sometimes ignitr command doesn't work after activating it globally specially when using Git Bash for windows, To solve this please use command as `ignitr.bat <commands>`**
+
+### Optional
+
+Optionally you can directly use the Ignitr Template project to create your application manually but it will only create a barebone project with boilerplate code and you won't have the power of the ignitr cli to generate new modules and pages in future.
+
+If you still wants to create a new project manually you can follow the below steps (you can activate the ignitr cli in future to generate the modules):
+
+Clone this rerepository and run the following command:
+
+```shell
+git clone https://github.com/devsbuddy/ignitr_template.git
 ```
 
 ### Features
@@ -19,34 +46,28 @@ Here are some fantastic features you’ll get by default when scaffolding your p
 - **Module Generator**: A simple module generator tool has been added, enabling you to generate any module with a single command.
 - **Local File Database**: This project includes a local file database, allowing you to create a data file for each local service and use it to store data efficiently.
 
-## New features
+## Other features
 
-#### Modulr Package - Generate modules in the project
+### Module Generator
 
-This package is added as a helper toolkit to generate the module in the project with just a command
-line.
+Ignitr comes with the powerfull CLI tool to help you generate the modules.
 
-## Modulr
+#### How to use
 
-Modulr is a code generator tool specially created for `FlutterFusion` starter kit, This helps you to generate all the files required for a Module.
+1. `ignitr make:module <module_name>`: To generate a new module you can use this command, please make sure to use the **`singular`** name of the module.
+2. `ignitr make:page <page_name> --on=<module_name>`: This command will generate a new page and associated controller inside the specified module.
 
-### Usage of Modulr
-
-Below is the example of how you can use this package and provided commands
-
-1. `modulr:generate`: This is generates whole code for a module.
-2. `modulr:controller`: This command generates a Controller file inside the provided module.
-3. `modulr:page`: This command generates a Page/View file inside the provided module.
-
-### Generate Module
+#### Generate Module
 
 ```shell
-dart pub run modulr:generate Blog
+ignitr make:module blog
 ```
+
+_NOTE: Please make sure to use the module names as singular name_
 
 This will generate all the files required for a `Module`
 
-#### Generated Files Inside your project's `lib/app/modules` directory.
+##### Generated Files Inside your project's `lib/app/modules` directory.
 
 ```txt
 📂 blog
@@ -54,7 +75,6 @@ This will generate all the files required for a `Module`
 │   └── 📄 blog_controller.dart
 ├── 📂 routes
 │   ├── 📄 blog_router.dart
-│   └── 📄 blog_routes.dart
 ├── 📂 services
 │   ├── 📄 api_blog_service.dart
 │   ├── 📄 blog_service.dart
@@ -64,15 +84,15 @@ This will generate all the files required for a `Module`
 └── 📄 blog_module.dart
 ```
 
-### Generate Page/View
+#### Generate Page/View
 
 ```shell
-dart pub run modulr:page Comment --on=blog
+ignitr make:page comment --on=blog
 ```
 
-This will generate the new view/page (`comment_page.dart`) along with it's controller (`comment_controller.dart`) file inside the `Blog` Module.
+This will generate the new view/page (`comment_page.dart`) along with it's controller (`comment_controller.dart`) file inside the `blog` Module.
 
-#### Generated files (including previously generated views)
+##### Generated files (including previously generated views)
 
 ```txt
 📂 blog
@@ -84,10 +104,6 @@ This will generate the new view/page (`comment_page.dart`) along with it's contr
 │   └── 📄 comment_page.dart
 ```
 
----
+### Further Documentation
 
-## Theme Builder
-
-ThemeBuilder is a helper widget designed to simplify managing light and dark themes in your application.
-
-If you want to add theming functionality to your app, this project includes ThemeBuilder, providing all the necessary code to seamlessly handle light and dark theme management.
+Please refer to the **[Ignitr Documentation](https://ignitr.devsbuddy.com)** for more detailed information and examples on how to use Ignitr.
