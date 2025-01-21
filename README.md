@@ -2,7 +2,9 @@
 
 This is the official repository for the Ignitr Flutter framework, It provides the basic boilererplate code to start building your next awesome Flutter application.
 
-Ignitr is a simple yet powerful flutter mini framework, designed to simplify the development of Flutter applications. It provides a set of tools and utilities to streamline the process of building Flutter apps, making it easier for developers to create high-quality, feature-rich applications.
+## What is Ignitr?
+
+Ignitr is a simple yet powerful flutter mini framework, designed to simplify the development of Flutter applications. It provides a set of tools and utilities to streamline the process of building Flutter apps, making it easier for developers to create high-quality, feature-rich applications. Ignitr is designed to be flexible and customizable, allowing developers to tailor it to their specific needs. It is highly inpired by the other `MVC` framewords built with other technologies like [Laravel](https://laravel.com) and [CodeIgniter](https://www.codeigniter.com).
 
 ### Getting Started
 
@@ -12,7 +14,7 @@ dart pub global activate ignitr
 
 ### Usage
 
-Above command will install the ignitr cli globally in your system, now you can use the built in Ignitr commands to get started with your project development.
+Above command will install the `ignitr` cli globally in your system, now you can use the built in Ignitr commands to get started with your project development.
 
 #### Create new Ignitr Project
 
@@ -103,6 +105,12 @@ This will generate the new view/page (`comment_page.dart`) along with it's contr
 │   └── 📄 blog_page.dart
 │   └── 📄 comment_page.dart
 ```
+
+### Upcoming features
+
+- **Version Control**: The project will include a version control system, allowing you to rollback to the previous version of the project and more.
+- **Stack Selection**: You can select the stack you want to use, such as GetX, Bloc, or any other stack.
+- **Tailwind**: The project will include Tailwind CSS inspired styling library for styling, providing a modern, responsive and unique look and feel to your application.
 
 ### Further Documentation
 

@@ -19,7 +19,7 @@ class Config {
   static String apiBaseUrl = "https://jsonplaceholder.typicode.com";
 
   /// App Name
-  static String appName = "Flutter Fusion";
+  static String appName = "Ignitr";
 
   /// Home/Dashboard URL [To be used to redirect user after login]
   static String homeRoute = DashboardRoutes.dashboard;
