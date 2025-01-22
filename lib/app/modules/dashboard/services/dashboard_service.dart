@@ -1,23 +1,27 @@
 import 'package:get/get.dart';
 
+import '../../../../config/config.dart';
 import '../../../shared/models/api_response.dart';
 import '../../../shared/services/services.dart';
-import 'api_dashboard_service.dart';
 import 'local_dashboard_service.dart';
+import 'remote_dashboard_service.dart';
 
 abstract class DashboardService extends BaseService {
   /// Define if this is in dev mode
-  static const bool devMode = true;
+  static bool devMode = Config.devMode;
 
   /// Create and get the instance of [DashboardService]
   static DashboardService get instance {
-    if (!Get.isRegistered<DashboardService>())
+    InternetService internetService = InternetService.instance;
+
+    if (!Get.isRegistered<DashboardService>()) {
       Get.lazyPut<DashboardService>(() {
-        InternetService internetService = InternetService.instance;
         if (devMode) return LocalDashboardService();
         if (!internetService.isConnected) return LocalDashboardService();
-        return ApiDashboardService();
+        return RemoteDashboardService();
       });
+    }
+
     return Get.find<DashboardService>();
   }
 

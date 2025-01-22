@@ -1,22 +1,26 @@
 import 'package:get/get.dart';
 
+import '../../../../config/config.dart';
 import '../../../shared/shared.dart';
-import 'api_settings_service.dart';
 import 'local_settings_service.dart';
+import 'remote_settings_service.dart';
 
 abstract class SettingsService extends BaseService {
   /// Define if this is in dev mode
-  static const bool devMode = true;
+  static bool devMode = Config.devMode;
 
   /// Create and get the instance of [SettingsService]
   static SettingsService get instance {
-    if (!Get.isRegistered<SettingsService>())
+    InternetService internetService = InternetService.instance;
+
+    if (!Get.isRegistered<SettingsService>()) {
       Get.lazyPut<SettingsService>(() {
-        InternetService internetService = InternetService.instance;
         if (devMode) return LocalSettingsService();
         if (!internetService.isConnected) return LocalSettingsService();
-        return ApiSettingsService();
+        return RemoteSettingsService();
       });
+    }
+
     return Get.find<SettingsService>();
   }
 

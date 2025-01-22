@@ -7,3 +7,4 @@ export 'validator.dart';
 export 'global.dart';
 export 'request.dart';
 export 'app_colors.dart';
+export 'database/database.dart';

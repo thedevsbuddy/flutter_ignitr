@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../config/config.dart';
+import '../../../../helpers/helpers.dart';
 
 class MasterLayout extends StatelessWidget {
   final Widget body;
@@ -22,7 +23,7 @@ class MasterLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: backgroundColor,
+        backgroundColor: backgroundColor ?? AppColors.primarySurface(context),
         appBar: AppBar(
           elevation: 0,
           title: title is String
@@ -32,7 +33,7 @@ class MasterLayout extends StatelessWidget {
               : title,
           actions: actions,
         ),
-        drawer: drawer ?? null,
+        drawer: drawer,
         body: body,
       ),
     );

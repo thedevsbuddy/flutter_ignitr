@@ -1,20 +1,18 @@
 import 'package:get/get.dart';
 
+import '../../../../config/config.dart';
 import '../../models/api_response.dart';
 import '../services.dart';
 
 abstract class AuthSessionService extends BaseService {
-  /// Define if this is in dev mode
-  static const bool devMode = true;
-
   /// Create and get the instance of [AuthSessionService]
   static AuthSessionService get instance {
+    InternetService internetService = InternetService.instance;
     if (!Get.isRegistered<AuthSessionService>()) {
       Get.lazyPut<AuthSessionService>(() {
-        InternetService internetService = InternetService.instance;
-        if (devMode) return LocalAuthSessionService();
+        if (Config.devMode) return LocalAuthSessionService();
         if (!internetService.isConnected) return LocalAuthSessionService();
-        return ApiAuthSessionService();
+        return RemoteAuthSessionService();
       });
     }
     return Get.find<AuthSessionService>();

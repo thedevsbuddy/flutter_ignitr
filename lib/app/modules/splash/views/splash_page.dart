@@ -8,7 +8,6 @@ import '../controllers/splash_controller.dart';
 
 class SplashPage extends StatelessWidget {
   SplashPage({super.key});
-
   final SplashController controller = SplashController.instance;
 
   @override
@@ -34,8 +33,7 @@ class SplashPage extends StatelessWidget {
             Spacer(),
             Padding(
               padding: const EdgeInsets.only(bottom: 32.0),
-              child: LoadingIcon(
-                  height: kSpacer, color: AppColors.accent(context)),
+              child: LoadingIcon(height: kSpacer, color: AppColors.accent(context)),
             ),
           ],
         ),

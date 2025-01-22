@@ -12,6 +12,9 @@ export 'theme/color_palette.dart';
 import '../app/modules/modules.dart';
 
 class Config {
+  /// Define the [devMode] for development
+  static bool devMode = true;
+
   /// Is Auth Required In App
   static bool authRequired = true;
 

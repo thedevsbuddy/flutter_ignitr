@@ -1,7 +1,7 @@
 import '../../../shared/shared.dart';
 import 'auth_service.dart';
 
-class ApiAuthService extends BaseService implements AuthService {
+class RemoteAuthService extends BaseService implements AuthService {
   @override
   Future<ApiResponse> login(
       {required String client, required Map<String, dynamic> body}) async {
