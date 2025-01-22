@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../../../helpers/helpers.dart';
 import '../../../shared/shared.dart';
+import '../../modules.dart';
 import '../controllers/login_controller.dart';
 
 class LoginPage extends StatelessWidget {
@@ -80,7 +81,7 @@ class LoginPage extends StatelessWidget {
                                 ),
                                 SizedBox(height: 16),
                                 GestureDetector(
-                                  onTap: () => Get.offNamed("/register"),
+                                  onTap: () => Get.offNamed(AuthRoutes.register),
                                   child: Text.rich(
                                     TextSpan(
                                       text: "Don't have an account?",

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../../helpers/helpers.dart';
 import '../../../shared/shared.dart';
+import '../../modules.dart';
 import '../controllers/register_controller.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -38,13 +39,9 @@ class RegisterPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 15),
-                      Text("Welcome,",
-                          style: TextStyl.title(context)
-                              ?.copyWith(fontWeight: FontWeight.w700)),
+                      Text("Welcome,", style: TextStyl.title(context)?.copyWith(fontWeight: FontWeight.w700)),
                       SizedBox(height: 5),
-                      Text("Create an account to continue.",
-                          style: TextStyl.body(context)
-                              ?.copyWith(fontWeight: FontWeight.bold)),
+                      Text("Create an account to continue.", style: TextStyl.body(context)?.copyWith(fontWeight: FontWeight.bold)),
                     ],
                   ),
                   Form(
@@ -56,46 +53,40 @@ class RegisterPage extends StatelessWidget {
                           controller: controller.firstNameInput,
                           placeholder: "First Name",
                           leading: Icon(Icons.person_outline),
-                          validator: (value) => Validator("First name", value!)
-                              .required()
-                              .validate(),
+                          validator: (value) => Validator("First name", value!).required().validate(),
+                          action: TextInputAction.next,
                         ),
                         SizedBox(height: 25),
                         FormInput.text(
                           controller: controller.lastNameInput,
                           placeholder: "Last Name",
                           leading: Icon(Icons.person_outline),
-                          validator: (value) => Validator("Last name", value!)
-                              .required()
-                              .validate(),
+                          validator: (value) => Validator("Last name", value!).required().validate(),
+                          action: TextInputAction.next,
                         ),
                         SizedBox(height: 25),
                         FormInput.text(
                           controller: controller.usernameInput,
                           placeholder: "Username",
                           leading: Icon(Icons.alternate_email_outlined),
-                          validator: (value) => Validator("Username", value!)
-                              .required()
-                              .validate(),
+                          validator: (value) => Validator("Username", value!).required().validate(),
+                          action: TextInputAction.next,
                         ),
                         SizedBox(height: 25),
                         FormInput.email(
                           controller: controller.emailInput,
                           placeholder: "Email",
                           leading: Icon(Icons.email_outlined),
-                          validator: (value) => Validator("Email", value!)
-                              .email()
-                              .required()
-                              .validate(),
+                          validator: (value) => Validator("Email", value!).email().required().validate(),
+                          action: TextInputAction.next,
                         ),
                         SizedBox(height: 25),
                         FormInput.password(
                           controller: controller.passwordInput,
                           placeholder: "Password",
                           leading: Icon(Icons.lock_outline),
-                          validator: (value) => Validator("Password", value!)
-                              .required()
-                              .validate(),
+                          validator: (value) => Validator("Password", value!).required().validate(),
+                          action: TextInputAction.done,
                         ),
                         SizedBox(height: 25),
                         Button.block(
@@ -109,20 +100,15 @@ class RegisterPage extends StatelessWidget {
                         ),
                         SizedBox(height: 16),
                         GestureDetector(
-                          onTap: () => Get.offNamed("/login"),
+                          onTap: () => Get.offNamed(AuthRoutes.login),
                           child: Text.rich(
                             TextSpan(
                               text: "Already have an account?",
-                              style: TextStyl.button(context)?.copyWith(
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyLarge
-                                      ?.color),
+                              style: TextStyl.button(context)?.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
                               children: [
                                 TextSpan(
                                   text: " Login",
-                                  style: TextStyl.button(context)?.copyWith(
-                                      color: Theme.of(context).primaryColor),
+                                  style: TextStyl.button(context)?.copyWith(color: Theme.of(context).primaryColor),
                                 ),
                               ],
                             ),
