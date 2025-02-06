@@ -1,4 +1,4 @@
-# Ignitr v0.1.0
+# Ignitr v0.1.1
 
 This is the official repository for the Ignitr Flutter framework, It provides the basic boilererplate code to start building your next awesome Flutter application.
 
@@ -36,7 +36,7 @@ If you still wants to create a new project manually you can follow the below ste
 Clone this rerepository and run the following command:
 
 ```shell
-git clone https://github.com/devsbuddy/flutter_ignitr.git
+git clone --branch v0.1.1 https://github.com/thedevsbuddy/flutter_ignitr.git
 ```
 
 ### Features
