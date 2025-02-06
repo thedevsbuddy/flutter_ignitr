@@ -1,4 +1,4 @@
-name: ⬆️ Upload Binary To Latest Release
+name: ⬆️ Upload Binaries
 
 on:
   workflow_dispatch:
