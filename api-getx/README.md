@@ -1,4 +1,4 @@
-# Ignitr v0.1.0
+# Ignitr - Custom API
 
 This is the official repository for the Ignitr Flutter framework, It provides the basic boilererplate code to start building your next awesome Flutter application.
 

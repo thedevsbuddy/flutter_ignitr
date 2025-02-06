@@ -1,8 +1,0 @@
-{
-  "dart.flutterSdkPath": ".fvm/versions/3.27.1",
-  "[dart]": {
-    "editor.defaultFormatter": "Dart-Code.dart-code",
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
-  }
-}
