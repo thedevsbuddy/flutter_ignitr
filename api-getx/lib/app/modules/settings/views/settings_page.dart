@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../../helpers/helpers.dart';
 import '../../../shared/shared.dart';
-import '../../modules.dart';
+import '../settings_module.dart';
 
 class SettingsPage extends StatelessWidget {
   SettingsPage({super.key});
@@ -24,7 +24,7 @@ class SettingsPage extends StatelessWidget {
                     children: [
                       Text(
                         "Theme",
-                        style: TextStyl.bodySm(context),
+                        style: TextStyl.body(context).sm.regular,
                       ),
                       Row(
                         children: [
@@ -44,7 +44,7 @@ class SettingsPage extends StatelessWidget {
                                     Icon(Icons.brightness_4_rounded, size: 32),
                                     Text(
                                       'System',
-                                      style: TextStyl.bodySm(context),
+                                      style: TextStyl.body(context).sm.regular,
                                     ),
                                   ],
                                 ),
@@ -68,7 +68,7 @@ class SettingsPage extends StatelessWidget {
                                     Icon(Icons.brightness_5_rounded, size: 32),
                                     Text(
                                       'Light',
-                                      style: TextStyl.bodySm(context),
+                                      style: TextStyl.body(context).sm.regular,
                                     ),
                                   ],
                                 ),
@@ -92,7 +92,7 @@ class SettingsPage extends StatelessWidget {
                                     Icon(Icons.brightness_2_rounded, size: 32),
                                     Text(
                                       'Dark',
-                                      style: TextStyl.bodySm(context),
+                                      style: TextStyl.body(context).sm.regular,
                                     ),
                                   ],
                                 ),
@@ -104,7 +104,7 @@ class SettingsPage extends StatelessWidget {
                       const SizedBox(height: kSpacer),
                       Text(
                         "Account",
-                        style: TextStyl.bodySm(context),
+                        style: TextStyl.body(context).sm.regular,
                       ),
                       const SizedBox(height: kSpacer1),
                       InkWell(
@@ -119,7 +119,7 @@ class SettingsPage extends StatelessWidget {
                           padding: EdgeInsets.symmetric(vertical: kSpacer3, horizontal: kSpacer),
                           child: Text(
                             "Logout",
-                            style: TextStyl.button(context),
+                            style: TextStyl.label(context).md.regular,
                           ),
                         ),
                       ),

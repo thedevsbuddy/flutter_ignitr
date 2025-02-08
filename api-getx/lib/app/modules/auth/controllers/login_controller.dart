@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../../../config/config.dart';
 import '../../../../helpers/helpers.dart';
 import '../../../shared/shared.dart';
-import '../../modules.dart';
+import '../auth_module.dart';
 
 class LoginController extends AppController {
   static LoginController get instance {

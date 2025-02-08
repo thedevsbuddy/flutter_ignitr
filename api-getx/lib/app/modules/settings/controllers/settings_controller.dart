@@ -1,8 +1,7 @@
 import 'package:get/get.dart';
 
 import '../../../../helpers/helpers.dart';
-import '../../../shared/controllers/app_controller.dart';
-import '../../../shared/views/widgets/theme_builder.dart';
+import '../../../shared/shared.dart';
 
 class SettingsController extends AppController {
   static SettingsController get instance {

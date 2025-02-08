@@ -34,13 +34,13 @@ dependencies:
   http: ^1.2.2
   path_provider: ^2.1.5
   recase: ^4.1.0
+  logger: any
 
 dev_dependencies:
   faker: ^2.1.0
   flutter_launcher_icons: ^0.14.3
   flutter_test:
     sdk: flutter
-  logger: ^2.2.0
 
 # Launcher Icon Configs
 flutter_icons:

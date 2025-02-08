@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../../../config/config.dart';
 import '../../../../helpers/helpers.dart';
 import '../../../shared/shared.dart';
-import '../controllers/splash_controller.dart';
+import '../splash_module.dart';
 
 class SplashPage extends StatelessWidget {
   SplashPage({super.key});

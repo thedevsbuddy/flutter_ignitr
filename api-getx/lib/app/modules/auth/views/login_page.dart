@@ -4,8 +4,7 @@ import 'package:get/get.dart';
 
 import '../../../../helpers/helpers.dart';
 import '../../../shared/shared.dart';
-import '../../modules.dart';
-import '../controllers/login_controller.dart';
+import '../auth_module.dart';
 
 class LoginPage extends StatelessWidget {
   final LoginController controller = LoginController.instance;
@@ -45,9 +44,9 @@ class LoginPage extends StatelessWidget {
                                 width: 75,
                               ),
                               const SizedBox(height: kSpacer),
-                              Text("Welcome Back,", style: TextStyl.title(context)!.copyWith(fontWeight: FontWeight.w700)),
+                              Text("Welcome Back,", style: TextStyl.heading(context).md.semibold),
                               const SizedBox(height: kSpacer1),
-                              Text("Sign in to continue", style: TextStyl.body(context)!.copyWith(fontWeight: FontWeight.bold)),
+                              Text("Sign in to continue", style: TextStyl.body(context).md.regular),
                             ],
                           ),
                           Form(
@@ -85,11 +84,11 @@ class LoginPage extends StatelessWidget {
                                   child: Text.rich(
                                     TextSpan(
                                       text: "Don't have an account?",
-                                      style: TextStyl.button(context)?.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
+                                      style: TextStyl.label(context).md.regular,
                                       children: [
                                         TextSpan(
                                           text: " Join Now",
-                                          style: TextStyl.button(context)?.copyWith(color: Theme.of(context).primaryColor),
+                                          style: TextStyl.label(context).md.medium,
                                         ),
                                       ],
                                     ),

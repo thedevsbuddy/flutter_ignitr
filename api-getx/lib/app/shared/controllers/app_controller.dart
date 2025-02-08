@@ -62,7 +62,7 @@ class AppController extends GetxController {
               const SizedBox(height: 16),
               Text(
                 'Please wait...',
-                style: TextStyl.body(Get.context!),
+                style: TextStyl.body(Get.context!).md.regular,
               ),
             ],
           ),

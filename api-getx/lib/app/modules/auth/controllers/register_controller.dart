@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../../../helpers/helpers.dart';
 import '../../../models/user_model.dart';
 import '../../../shared/shared.dart';
-import '../../modules.dart';
+import '../auth_module.dart';
 
 class RegisterController extends AppController {
   static RegisterController get instance {
@@ -48,8 +48,7 @@ class RegisterController extends AppController {
       /// Initialize the Service and request server
       _authService.init(client);
 
-      ApiResponse response =
-          await _authService.register(client: client, body: body);
+      ApiResponse response = await _authService.register(client: client, body: body);
 
       if (response.hasError()) {
         Toastr.show(message: "${response.message}");
