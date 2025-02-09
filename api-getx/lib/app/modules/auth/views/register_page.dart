@@ -3,8 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../../helpers/helpers.dart';
 import '../../../shared/shared.dart';
-import '../../modules.dart';
-import '../controllers/register_controller.dart';
+import '../auth_module.dart';
 
 class RegisterPage extends StatelessWidget {
   final RegisterController controller = RegisterController.instance;
@@ -39,9 +38,9 @@ class RegisterPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 15),
-                      Text("Welcome,", style: TextStyl.title(context)?.copyWith(fontWeight: FontWeight.w700)),
+                      Text("Welcome,", style: TextStyl.heading(context).md.semibold),
                       SizedBox(height: 5),
-                      Text("Create an account to continue.", style: TextStyl.body(context)?.copyWith(fontWeight: FontWeight.bold)),
+                      Text("Create an account to continue.", style: TextStyl.body(context).md.regular),
                     ],
                   ),
                   Form(
@@ -104,11 +103,11 @@ class RegisterPage extends StatelessWidget {
                           child: Text.rich(
                             TextSpan(
                               text: "Already have an account?",
-                              style: TextStyl.button(context)?.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
+                              style: TextStyl.label(context).md.regular,
                               children: [
                                 TextSpan(
                                   text: " Login",
-                                  style: TextStyl.button(context)?.copyWith(color: Theme.of(context).primaryColor),
+                                  style: TextStyl.label(context).md.medium,
                                 ),
                               ],
                             ),

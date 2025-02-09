@@ -5,16 +5,7 @@ import '../../../../../config/config.dart';
 import '../../../../../helpers/helpers.dart';
 import '../../../shared.dart';
 
-enum ButtonVariant {
-  PRIMARY,
-  SECONDARY,
-  DANGER,
-  SUCCESS,
-  INFO,
-  WARNING,
-  DARK,
-  LIGHT
-}
+enum ButtonVariant { PRIMARY, SECONDARY, DANGER, SUCCESS, INFO, WARNING, DARK, LIGHT }
 
 class Button extends StatelessWidget {
   final String label;
@@ -199,8 +190,7 @@ class Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color _btnBgColor = _btnColors(context)[variant]!;
-    Color _btnTxtColor =
-        _btnBgColor.computeLuminance() > 0.6 ? kcSlate.shade600 : kcWhite;
+    Color _btnTxtColor = _btnBgColor.computeLuminance() > 0.6 ? kcSlate.shade600 : kcWhite;
 
     return Obx(
       () => GestureDetector(
@@ -213,18 +203,14 @@ class Button extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: !outline
                     ? BoxDecoration(
-                        color: !btnController.isDisabled
-                            ? _btnBgColor
-                            : _btnBgColor.withAlpha(alpha(0.5)),
+                        color: !btnController.isDisabled ? _btnBgColor : _btnBgColor.withAlpha(alpha(0.5)),
                         borderRadius: BorderRadius.circular(!flat ? 8 : 0),
                       )
                     : BoxDecoration(
                         color: Colors.transparent,
                         borderRadius: BorderRadius.circular(!flat ? 8 : 0),
                         border: Border.all(
-                          color: !btnController.isDisabled
-                              ? _btnBgColor
-                              : _btnBgColor.withAlpha(alpha(0.5)),
+                          color: !btnController.isDisabled ? _btnBgColor : _btnBgColor.withAlpha(alpha(0.5)),
                           width: 1,
                         ),
                       ),
@@ -237,11 +223,10 @@ class Button extends StatelessWidget {
                           if (leading != null) SizedBox(width: 6),
                           Text(
                             label,
-                            style: TextStyl.button(context)?.copyWith(
-                              fontWeight:
-                                  !outline ? FontWeight.bold : FontWeight.w400,
-                              color: !outline ? _btnTxtColor : _btnBgColor,
-                            ),
+                            style: TextStyl.label(context).md.regular?.copyWith(
+                                  fontWeight: !outline ? FontWeight.bold : FontWeight.w400,
+                                  color: !outline ? _btnTxtColor : _btnBgColor,
+                                ),
                           ),
                         ],
                       )
@@ -263,9 +248,7 @@ class Button extends StatelessWidget {
                     alignment: Alignment.center,
                     decoration: !outline
                         ? BoxDecoration(
-                            color: !btnController.isDisabled
-                                ? _btnBgColor
-                                : _btnBgColor.withAlpha(alpha(0.5)),
+                            color: !btnController.isDisabled ? _btnBgColor : _btnBgColor.withAlpha(alpha(0.5)),
                             borderRadius: BorderRadius.circular(!flat ? 8 : 0),
                             border: Border.all(
                               color: _btnBgColor,
@@ -289,18 +272,18 @@ class Button extends StatelessWidget {
                               if (leading != null) SizedBox(width: 6),
                               Text(
                                 label,
-                                style: TextStyl.button(context)?.copyWith(
-                                  fontWeight: !outline
-                                      ? FontWeight.bold
-                                      : FontWeight.w400,
-                                  color: !outline ? _btnTxtColor : _btnBgColor,
-                                ),
+                                style: !outline
+                                    ? TextStyl.label(context).sm.medium?.copyWith(
+                                          color: _btnTxtColor,
+                                        )
+                                    : TextStyl.label(context).sm.regular?.copyWith(
+                                          color: _btnBgColor,
+                                        ),
                               ),
                             ],
                           )
                         : loadingIcon != null
-                            ? SizedBox(
-                                height: 20, width: 20, child: loadingIcon)
+                            ? SizedBox(height: 20, width: 20, child: loadingIcon)
                             : LoadingIcon(
                                 color: !outline ? _btnTxtColor : _btnBgColor,
                                 height: 16,
@@ -315,8 +298,7 @@ class Button extends StatelessWidget {
 
 class ButtonController extends GetxController {
   static ButtonController get instance {
-    if (!Get.isRegistered<ButtonController>())
-      Get.create(() => ButtonController());
+    if (!Get.isRegistered<ButtonController>()) Get.create(() => ButtonController());
     return Get.find<ButtonController>();
   }
 

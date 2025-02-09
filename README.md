@@ -19,11 +19,10 @@ Above command will install the `ignitr` cli globally in your system, now you can
 #### Create new Ignitr Project
 
 ```shell
-ignitr create <project_name> --version=<ignitr_version>
+ignitr create <project_name>
 ```
 
 - _<project_name>_: This will be the project name you want to generate, it will scaffold a new fresh project with name name provided.
-- _<--version>_: This is optional option to select the Ignitr version to create project with, defaults to the `latest` version.
 
 **NOTE: Please note sometimes ignitr command doesn't work after activating it globally specially when using Git Bash for windows, To solve this please use command as `ignitr.bat <commands>`**
 

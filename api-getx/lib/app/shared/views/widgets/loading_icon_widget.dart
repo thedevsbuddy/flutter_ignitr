@@ -24,9 +24,7 @@ class LoadingIconWidget extends StatelessWidget {
                 color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(8),
                 boxShadow: [
-                  BoxShadow(
-                      color: Colors.black.withAlpha(alpha(0.15)),
-                      blurRadius: 5),
+                  BoxShadow(color: Colors.black.withAlpha(alpha(0.15)), blurRadius: 5),
                 ],
               ),
               child: Column(
@@ -40,7 +38,7 @@ class LoadingIconWidget extends StatelessWidget {
                   SizedBox(height: 20),
                   Text(
                     "$message",
-                    style: TextStyl.body(context),
+                    style: TextStyl.body(context).md.regular,
                     textAlign: TextAlign.center,
                   ),
                 ],

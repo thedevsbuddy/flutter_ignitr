@@ -32,12 +32,12 @@ class DashboardPage extends StatelessWidget {
                       children: [
                         Text(
                           'Dashboard Page',
-                          style: TextStyl.subtitle(context),
+                          style: TextStyl.heading(context).sm.semibold,
                         ),
                         SizedBox(height: kSpacer),
                         Text(
                           'Build something awesome',
-                          style: TextStyl.body(context),
+                          style: TextStyl.body(context).md.regular,
                         ),
                       ],
                     ),

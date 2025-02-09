@@ -1,61 +1,491 @@
 import 'package:flutter/material.dart';
 
+/// Represents a class that provides utility methods for working with text styles in the application.
 class TextStyl {
-  static TextStyle? heading1(BuildContext context) {
-    return Theme.of(context).textTheme.displayLarge;
+  static TypographySize heading(BuildContext context) {
+    return TypographySize(
+      xs: TypographyWeight(
+        regular: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.33,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.33,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.33,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.33,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+      sm: TypographyWeight(
+        regular: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 24.0,
+              height: 1.33,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 24.0,
+              height: 1.33,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 24.0,
+              height: 1.33,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 24.0,
+              height: 1.33,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+      md: TypographyWeight(
+        regular: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 32.0,
+              height: 1.25,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 32.0,
+              height: 1.25,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 32.0,
+              height: 1.25,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 32.0,
+              height: 1.25,
+              fontWeight: FontWeight.w700,
+            ),
+      ),
+      lg: TypographyWeight(
+        regular: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 36.0,
+              height: 1.33,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 36.0,
+              height: 1.33,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 36.0,
+              height: 1.33,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 36.0,
+              height: 1.33,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+      xl: TypographyWeight(
+        regular: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 44.0,
+              height: 1.27,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 44.0,
+              height: 1.27,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 44.0,
+              height: 1.27,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontSize: 44.0,
+              height: 1.27,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+    );
   }
 
-  static TextStyle? heading2(BuildContext context) {
-    return Theme.of(context).textTheme.displayMedium;
+  static TypographySize body(BuildContext context) {
+    return TypographySize(
+      xs: TypographyWeight(
+        regular: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 12.0,
+              height: 1.33,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 12.0,
+              height: 1.33,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 12.0,
+              height: 1.33,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 12.0,
+              height: 1.33,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+      sm: TypographyWeight(
+        regular: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 14.0,
+              height: 1.28,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 14.0,
+              height: 1.28,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 14.0,
+              height: 1.28,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 14.0,
+              height: 1.28,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+      md: TypographyWeight(
+        regular: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 16.0,
+              height: 1.5,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 16.0,
+              height: 1.5,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 16.0,
+              height: 1.5,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 16.0,
+              height: 1.5,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+      lg: TypographyWeight(
+        regular: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.55,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.55,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.55,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.55,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+      xl: TypographyWeight(
+        regular: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 24.0,
+              height: 1.33,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 24.0,
+              height: 1.33,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 24.0,
+              height: 1.33,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 24.0,
+              height: 1.33,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+    );
   }
 
-  static TextStyle? heading3(BuildContext context) {
-    return Theme.of(context).textTheme.displaySmall;
+  static TypographySize caption(BuildContext context) {
+    return TypographySize(
+      xs: TypographyWeight(
+        regular: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 10.0,
+              height: 1.4,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 10.0,
+              height: 1.4,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 10.0,
+              height: 1.4,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 10.0,
+              height: 1.4,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+      sm: TypographyWeight(
+        regular: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 12.0,
+              height: 1.33,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 12.0,
+              height: 1.33,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 12.0,
+              height: 1.33,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 12.0,
+              height: 1.33,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+      md: TypographyWeight(
+        regular: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 14.0,
+              height: 1.28,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 14.0,
+              height: 1.28,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 14.0,
+              height: 1.28,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 14.0,
+              height: 1.28,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+      lg: TypographyWeight(
+        regular: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.33,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.33,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.33,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.33,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+      xl: TypographyWeight(
+        regular: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 20.0,
+              height: 1.4,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 20.0,
+              height: 1.4,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 20.0,
+              height: 1.4,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 20.0,
+              height: 1.4,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+    );
   }
 
-  static TextStyle? title(BuildContext context) {
-    return Theme.of(context).textTheme.displayMedium?.copyWith(
-          fontSize: 28.0,
-          fontWeight: FontWeight.w600,
-        );
+  static TypographySize label(BuildContext context) {
+    return TypographySize(
+      xs: TypographyWeight(
+        regular: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 10.0,
+              height: 1.4,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 10.0,
+              height: 1.4,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 10.0,
+              height: 1.4,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 10.0,
+              height: 1.4,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+      sm: TypographyWeight(
+        regular: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 12.0,
+              height: 1.33,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 12.0,
+              height: 1.33,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 12.0,
+              height: 1.33,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 12.0,
+              height: 1.33,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+      md: TypographyWeight(
+        regular: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 14.0,
+              height: 1.28,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 14.0,
+              height: 1.28,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 14.0,
+              height: 1.28,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 14.0,
+              height: 1.28,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+      lg: TypographyWeight(
+        regular: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.33,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.33,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.33,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 18.0,
+              height: 1.33,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+      xl: TypographyWeight(
+        regular: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 20.0,
+              height: 1.4,
+              fontWeight: FontWeight.w400,
+            ),
+        medium: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 20.0,
+              height: 1.4,
+              fontWeight: FontWeight.w500,
+            ),
+        semibold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 20.0,
+              height: 1.4,
+              fontWeight: FontWeight.w700,
+            ),
+        bold: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 20.0,
+              height: 1.4,
+              fontWeight: FontWeight.w800,
+            ),
+      ),
+    );
   }
+}
 
-  static TextStyle? subtitle(BuildContext context) {
-    return Theme.of(context).textTheme.displaySmall?.copyWith(
-          fontSize: 24.0,
-          fontWeight: FontWeight.w600,
-        );
-  }
+/// Typography Objects
+///
+class TypographySize {
+  final TypographyWeight xs;
+  final TypographyWeight sm;
+  final TypographyWeight md;
+  final TypographyWeight lg;
+  final TypographyWeight xl;
 
-  static TextStyle? body(BuildContext context) {
-    return Theme.of(context).textTheme.bodyLarge?.copyWith(
-          fontSize: 16.0,
-          fontWeight: FontWeight.w500,
-        );
-  }
+  TypographySize({
+    required this.xs,
+    required this.sm,
+    required this.md,
+    required this.lg,
+    required this.xl,
+  });
+}
 
-  static TextStyle? bodySm(BuildContext context) {
-    return Theme.of(context).textTheme.bodyLarge?.copyWith(
-          fontSize: 14.0,
-        );
-  }
+class TypographyWeight {
+  final TextStyle? regular;
+  final TextStyle? medium;
+  final TextStyle? semibold;
+  final TextStyle? bold;
 
-  static TextStyle? caption(BuildContext context) {
-    return Theme.of(context).textTheme.bodySmall;
-  }
-
-  static TextStyle? button(BuildContext context) {
-    return Theme.of(context).textTheme.labelLarge?.copyWith(
-          fontSize: 14.0,
-          fontWeight: FontWeight.w600,
-          height: 1.07,
-        );
-  }
-
-  static TextStyle? label(BuildContext context) {
-    return Theme.of(context).textTheme.labelLarge?.copyWith(
-          fontWeight: FontWeight.w600,
-          fontSize: 14.0,
-        );
-  }
+  TypographyWeight({this.regular, this.medium, this.semibold, this.bold});
 }
