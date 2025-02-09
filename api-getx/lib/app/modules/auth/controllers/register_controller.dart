@@ -23,14 +23,11 @@ class RegisterController extends AppController {
 
   /// Variables
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  final TextEditingController firstNameInput = TextEditingController();
-  final TextEditingController lastNameInput = TextEditingController();
+
+  /// TextEditingControllers
   final TextEditingController usernameInput = TextEditingController();
   final TextEditingController emailInput = TextEditingController();
-  final TextEditingController phoneInput = TextEditingController();
-  final TextEditingController referralInput = TextEditingController();
   final TextEditingController passwordInput = TextEditingController();
-  final TextEditingController confirmPasswordInput = TextEditingController();
 
   Future<void> submit() async {
     if (!formKey.currentState!.validate()) return;
@@ -38,10 +35,9 @@ class RegisterController extends AppController {
 
     try {
       Map<String, dynamic> body = UserModel(
-        name: "${firstNameInput.text} ${lastNameInput.text}",
+        name: "${usernameInput.text}",
         email: emailInput.text,
         password: passwordInput.text,
-        phone: phoneInput.text,
         username: usernameInput.text,
       ).toJson();
 

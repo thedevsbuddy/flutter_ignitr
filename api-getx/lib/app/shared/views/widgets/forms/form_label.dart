@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../config/config.dart';
 import '../../../../../helpers/helpers.dart';
 
 class FormLabel extends StatelessWidget {
-  FormLabel({required this.label, this.color});
+  FormLabel(this.label, {this.color});
 
   final String label;
   final Color? color;
@@ -13,7 +12,9 @@ class FormLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       "$label",
-      style: TextStyl.label(context).md.medium?.copyWith(color: color ?? kcSlate.shade600),
+      style: TextStyl.label(context).md.medium?.copyWith(
+            color: color ?? AppColors.secondaryContent(context),
+          ),
     );
   }
 }

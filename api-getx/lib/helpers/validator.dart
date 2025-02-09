@@ -39,70 +39,65 @@ class Validator {
   Validator(this.field, this.value);
 
   /// Rule: `required`
-  Validator required() {
+  Validator required([String? message]) {
     if (GetUtils.isLengthLessOrEqual(value, 0)) {
-      errors.assign(field, "${Str.of(field).ucFirst()} is required");
+      errors.assign(field, message ?? "${Str.of(field).ucFirst()} is required");
     }
     return this;
   }
 
   /// Rule: `email`
-  Validator email() {
+  Validator email([String? message]) {
     if (!GetUtils.isEmail(value)) {
-      errors.assign(field, "${Str.of(field).ucFirst()} needs to be an email!");
+      errors.assign(field, message ?? "${Str.of(field).ucFirst()} needs to be an email!");
     }
     return this;
   }
 
   /// Rule: `isEqual`
-  Validator isEqual(dynamic val, String fieldMatchWith) {
+  Validator isEqual(dynamic val, String fieldMatchWith, [String? message]) {
     if (value != val) {
-      errors.assign(field,
-          "${Str.of(fieldMatchWith).ucFirst()} and ${Str.of(field).ucFirst()} doesn't match!");
+      errors.assign(field, message ?? "${Str.of(fieldMatchWith).ucFirst()} and ${Str.of(field).ucFirst()} doesn't match!");
     }
     return this;
   }
 
   /// Rule: `number`
-  Validator number() {
+  Validator number([String? message]) {
     if (!GetUtils.isNull(value)) {
-      errors.assign(field, "${Str.of(field).ucFirst()} needs to be a number!");
+      errors.assign(field, message ?? "${Str.of(field).ucFirst()} needs to be a number!");
     }
     return this;
   }
 
   /// Rule: `min`
-  Validator min(int minLength) {
+  Validator min(int minLength, [String? message]) {
     if (value.length < minLength) {
-      errors.assign(
-          field, "${Str.of(field).ucFirst()} must be $minLength character!");
+      errors.assign(field, message ?? "${Str.of(field).ucFirst()} must be $minLength character!");
     }
     return this;
   }
 
   /// Rule: `max`
-  Validator max(int maxLength) {
+  Validator max(int maxLength, [String? message]) {
     if (GetUtils.isLengthGreaterThan(value, maxLength)) {
-      errors.assign(field,
-          "${Str.of(field).ucFirst()} must be less than or equal to $maxLength character!");
+      errors.assign(field, message ?? "${Str.of(field).ucFirst()} must be less than or equal to $maxLength character!");
     }
     return this;
   }
 
   /// Rule: `between`
-  Validator between(int minLength, int maxLength) {
+  Validator between(int minLength, int maxLength, [String? message]) {
     if (!GetUtils.isLengthBetween(value, minLength, maxLength)) {
-      errors.assign(field,
-          "${Str.of(field).ucFirst()} must be between $minLength and $maxLength character!");
+      errors.assign(field, message ?? "${Str.of(field).ucFirst()} must be between $minLength and $maxLength character!");
     }
     return this;
   }
 
   /// Rule: `specialCharacter`
-  Validator specialCharacter({String? allowed}) {
+  Validator specialCharacter([String? message]) {
     if (value.contains(RegExp(r'[\s\-$&+,:;=?@#|<>\.^*()%!\\]'))) {
-      errors.assign(field,
-          "${Str.of(field).ucFirst()} not allow any special character except underscores (_)");
+      errors.assign(field, message ?? "${Str.of(field).ucFirst()} not allow any special character except underscores (_)");
     }
     return this;
   }

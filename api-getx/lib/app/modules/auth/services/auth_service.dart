@@ -7,7 +7,7 @@ import 'local_auth_service.dart';
 
 abstract class AuthService extends BaseService {
   /// Define if this is in dev mode
-  static bool devMode = Config.devMode;
+  static bool useLocal = Config.devMode;
 
   /// Create and get the instance of [AuthService]
   static AuthService get instance {
@@ -15,7 +15,7 @@ abstract class AuthService extends BaseService {
 
     if (!Get.isRegistered<AuthService>()) {
       Get.lazyPut<AuthService>(() {
-        if (devMode) return LocalAuthService();
+        if (useLocal) return LocalAuthService();
         if (!internetService.isConnected) return LocalAuthService();
         return RemoteAuthService();
       });

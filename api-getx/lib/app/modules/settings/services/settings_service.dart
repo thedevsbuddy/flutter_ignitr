@@ -7,7 +7,7 @@ import 'remote_settings_service.dart';
 
 abstract class SettingsService extends BaseService {
   /// Define if this is in dev mode
-  static bool devMode = Config.devMode;
+  static bool useLocal = Config.devMode;
 
   /// Create and get the instance of [SettingsService]
   static SettingsService get instance {
@@ -15,7 +15,7 @@ abstract class SettingsService extends BaseService {
 
     if (!Get.isRegistered<SettingsService>()) {
       Get.lazyPut<SettingsService>(() {
-        if (devMode) return LocalSettingsService();
+        if (useLocal) return LocalSettingsService();
         if (!internetService.isConnected) return LocalSettingsService();
         return RemoteSettingsService();
       });

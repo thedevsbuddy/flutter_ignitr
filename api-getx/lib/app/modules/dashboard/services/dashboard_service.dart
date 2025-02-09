@@ -8,7 +8,7 @@ import 'remote_dashboard_service.dart';
 
 abstract class DashboardService extends BaseService {
   /// Define if this is in dev mode
-  static bool devMode = Config.devMode;
+  static bool useLocal = Config.devMode;
 
   /// Create and get the instance of [DashboardService]
   static DashboardService get instance {
@@ -16,7 +16,7 @@ abstract class DashboardService extends BaseService {
 
     if (!Get.isRegistered<DashboardService>()) {
       Get.lazyPut<DashboardService>(() {
-        if (devMode) return LocalDashboardService();
+        if (useLocal) return LocalDashboardService();
         if (!internetService.isConnected) return LocalDashboardService();
         return RemoteDashboardService();
       });

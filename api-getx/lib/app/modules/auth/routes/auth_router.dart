@@ -6,6 +6,9 @@ import '../auth_module.dart';
 class AuthRoutes {
   static String get login => '/login';
   static String get register => '/register';
+  static String get forgotPassword => '/forgot-password';
+  static String get verifyCode => '/verify-code';
+  static String get createPassword => '/create-password';
 }
 
 /// Defines the routes for the authentication module. This list of [GetPage] instances
@@ -14,4 +17,7 @@ class AuthRoutes {
 List<GetPage> authRoutes = [
   GetPage(name: '/login', page: () => LoginPage()),
   GetPage(name: '/register', page: () => RegisterPage()),
+  GetPage(name: '/forgot-password', page: () => ForgotPasswordPage()),
+  GetPage(name: '/verify-code', page: () => VerifyCodePage()),
+  GetPage(name: '/create-password', page: () => CreatePasswordPage()),
 ];

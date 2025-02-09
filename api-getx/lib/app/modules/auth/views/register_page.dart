@@ -1,3 +1,4 @@
+import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,102 +19,117 @@ class RegisterPage extends StatelessWidget {
           child: GestureDetector(
             onTap: () => Keyboard.hide(context),
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
-              color: Colors.transparent,
               width: double.infinity,
-              height: screen.height - 55,
+              constraints: BoxConstraints(minHeight: screen.height - 55),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.end,
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 60),
-                      Container(
+                      Padding(
+                        padding: const EdgeInsets.only(left: kSpacer5),
                         child: Image.asset(
-                          image('logo.png'),
-                          width: 75,
+                          "assets/images/logo.png",
+                          width: 112,
                         ),
                       ),
-                      SizedBox(height: 15),
-                      Text("Welcome,", style: TextStyl.heading(context).md.semibold),
-                      SizedBox(height: 5),
-                      Text("Create an account to continue.", style: TextStyl.body(context).md.regular),
+                      const SizedBox(height: kSpacer),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: kSpacer5),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Register", style: TextStyl.heading(context).md.semibold),
+                            const SizedBox(height: kSpacer1),
+                            Text("Sign up to start using vida social", style: TextStyl.body(context).sm.regular),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
-                  Form(
-                    key: controller.formKey,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    child: Column(
-                      children: [
-                        FormInput.text(
-                          controller: controller.firstNameInput,
-                          placeholder: "First Name",
-                          leading: Icon(Icons.person_outline),
-                          validator: (value) => Validator("First name", value!).required().validate(),
-                          action: TextInputAction.next,
-                        ),
-                        SizedBox(height: 25),
-                        FormInput.text(
-                          controller: controller.lastNameInput,
-                          placeholder: "Last Name",
-                          leading: Icon(Icons.person_outline),
-                          validator: (value) => Validator("Last name", value!).required().validate(),
-                          action: TextInputAction.next,
-                        ),
-                        SizedBox(height: 25),
-                        FormInput.text(
-                          controller: controller.usernameInput,
-                          placeholder: "Username",
-                          leading: Icon(Icons.alternate_email_outlined),
-                          validator: (value) => Validator("Username", value!).required().validate(),
-                          action: TextInputAction.next,
-                        ),
-                        SizedBox(height: 25),
-                        FormInput.email(
-                          controller: controller.emailInput,
-                          placeholder: "Email",
-                          leading: Icon(Icons.email_outlined),
-                          validator: (value) => Validator("Email", value!).email().required().validate(),
-                          action: TextInputAction.next,
-                        ),
-                        SizedBox(height: 25),
-                        FormInput.password(
-                          controller: controller.passwordInput,
-                          placeholder: "Password",
-                          leading: Icon(Icons.lock_outline),
-                          validator: (value) => Validator("Password", value!).required().validate(),
-                          action: TextInputAction.done,
-                        ),
-                        SizedBox(height: 25),
-                        Button.block(
-                          key: UniqueKey(),
-                          label: "Register",
-                          onTap: (btn) {
-                            btn.setBusy(true).setDisabled(true);
-                            controller.submit();
-                            btn.setBusy(false).setDisabled(false);
-                          },
-                        ),
-                        SizedBox(height: 16),
-                        GestureDetector(
-                          onTap: () => Get.offNamed(AuthRoutes.login),
-                          child: Text.rich(
-                            TextSpan(
-                              text: "Already have an account?",
-                              style: TextStyl.label(context).md.regular,
-                              children: [
-                                TextSpan(
-                                  text: " Login",
-                                  style: TextStyl.label(context).md.medium,
-                                ),
-                              ],
-                            ),
+                  const SizedBox(height: kSpacer5),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: kSpacer6, horizontal: kSpacer5),
+                    child: Form(
+                      key: controller.formKey,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          FormLabel("Username"),
+                          const SizedBox(height: kSpacer2),
+                          FormInput.text(
+                            controller: controller.usernameInput,
+                            placeholder: "john.doe",
+                            leading: Icon(FeatherIcons.user),
+                            action: TextInputAction.next,
+                            validator: (value) => Validator("Username", value!).required().validate(),
                           ),
-                        ),
-                      ],
+                          const SizedBox(height: kSpacer),
+                          FormLabel("Email"),
+                          const SizedBox(height: kSpacer2),
+                          FormInput.email(
+                            controller: controller.emailInput,
+                            placeholder: "john.doe@example.com",
+                            leading: Icon(Icons.email_outlined),
+                            action: TextInputAction.next,
+                            validator: (value) => Validator("Email", value!).email().required().validate(),
+                          ),
+                          const SizedBox(height: kSpacer),
+                          FormLabel("Password"),
+                          const SizedBox(height: kSpacer2),
+                          FormInput.password(
+                            controller: controller.passwordInput,
+                            placeholder: "********",
+                            leading: Icon(Icons.lock_outline),
+                            action: TextInputAction.done,
+                            validator: (value) => Validator("Password", value!).required().validate(),
+                          ),
+                          const SizedBox(height: kSpacer),
+                          Button.block(
+                            key: ObjectKey("register_button"),
+                            label: "Register",
+                            onTap: (btn) {
+                              btn.setBusy(true).setDisabled(true);
+                              controller.submit();
+                              btn.setBusy(false).setDisabled(false);
+                            },
+                          ),
+                          const SizedBox(height: kSpacer),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(child: Decorator(type: DecoratorType.halfLeft)),
+                              const SizedBox(width: kSpacer3),
+                              Text("OR"),
+                              const SizedBox(width: kSpacer3),
+                              Expanded(child: Decorator(type: DecoratorType.halfRight)),
+                            ],
+                          ),
+                          const SizedBox(height: kSpacer),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Already have an account?",
+                                style: TextStyl.label(context).md.regular?.copyWith(color: AppColors.primaryContent(context)),
+                              ),
+                              GestureDetector(
+                                onTap: () => Get.offNamed(AuthRoutes.login),
+                                child: Text(
+                                  " Sign in",
+                                  style: TextStyl.label(context).md.medium?.copyWith(color: AppColors.accent(context)),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],

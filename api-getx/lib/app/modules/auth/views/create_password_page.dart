@@ -1,4 +1,3 @@
-import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,13 +5,13 @@ import '../../../../helpers/helpers.dart';
 import '../../../shared/shared.dart';
 import '../auth_module.dart';
 
-class LoginPage extends StatelessWidget {
-  final LoginController controller = LoginController.instance;
+class CreatePasswordPage extends StatelessWidget {
+  CreatePasswordPage({super.key});
+
+  final CreatePasswordController controller = CreatePasswordController.instance;
 
   @override
   Widget build(BuildContext context) {
-    var screen = Get.size;
-
     return Obx(
       () => !controller.internetService.isConnected
           ? NotConnectedErrorPage(
@@ -22,7 +21,8 @@ class LoginPage extends StatelessWidget {
           : AuthLayout(
               body: SafeArea(
                 child: SingleChildScrollView(
-                  child: GestureDetector(
+                  child: InkWell(
+                    splashFactory: NoSplash.splashFactory,
                     onTap: () => Keyboard.hide(context),
                     child: Container(
                       width: double.infinity,
@@ -43,15 +43,15 @@ class LoginPage extends StatelessWidget {
                                   width: 112,
                                 ),
                               ),
-                              const SizedBox(height: kSpacer8),
+                              const SizedBox(height: kSpacer),
                               Padding(
                                 padding: EdgeInsets.symmetric(horizontal: kSpacer5),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("Welcome Back", style: TextStyl.heading(context).md.semibold),
+                                    Text("Reset Password", style: TextStyl.heading(context).md.semibold),
                                     const SizedBox(height: kSpacer1),
-                                    Text("Login to your account", style: TextStyl.body(context).sm.regular),
+                                    Text("Create your new password", style: TextStyl.body(context).sm.regular),
                                   ],
                                 ),
                               ),
@@ -66,28 +66,35 @@ class LoginPage extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  FormLabel("Email / Username"),
-                                  const SizedBox(height: kSpacer2),
-                                  FormInput.text(
-                                    controller: controller.identifierInput,
-                                    placeholder: "john.doe@example.com",
-                                    leading: Icon(FeatherIcons.user),
-                                    validator: (value) => Validator("identifier", value!).required().validate(),
-                                  ),
-                                  const SizedBox(height: kSpacer),
-                                  FormLabel("Password"),
+                                  FormLabel("New Password"),
                                   const SizedBox(height: kSpacer2),
                                   FormInput.password(
                                     controller: controller.passwordInput,
-                                    placeholder: "********",
+                                    placeholder: "Enter new password",
+                                    action: TextInputAction.next,
                                     leading: Icon(Icons.lock_outline),
-                                    validator: (value) => Validator("password", value!).required().validate(),
+                                    validator: (value) => Validator("New Password", value!).required().validate(),
+                                  ),
+                                  const SizedBox(height: kSpacer),
+                                  FormLabel("Confirmation Password"),
+                                  const SizedBox(height: kSpacer2),
+                                  FormInput.password(
+                                    controller: controller.confirmPasswordInput,
+                                    placeholder: "Enter confirmation password",
                                     action: TextInputAction.done,
+                                    leading: Icon(Icons.lock_outline),
+                                    validator: (value) => Validator("Confirmation Password", value!)
+                                        .required()
+                                        .isEqual(
+                                          controller.passwordInput.text,
+                                          "New Password",
+                                        )
+                                        .validate(),
                                   ),
                                   const SizedBox(height: kSpacer),
                                   Button.block(
-                                    key: ObjectKey("sign_in_button"),
-                                    label: "Sign In",
+                                    key: ObjectKey("update_password_button"),
+                                    label: "Update Password",
                                     onTap: (ButtonController btn) async {
                                       btn.setBusy(true).setDisabled(true);
                                       await controller.submit();
@@ -107,31 +114,17 @@ class LoginPage extends StatelessWidget {
                                     ],
                                   ),
                                   const SizedBox(height: kSpacer),
-                                  Column(
+                                  Row(
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "Don't have an account?",
-                                            style: TextStyl.label(context).md.regular?.copyWith(color: AppColors.primaryContent(context)),
-                                          ),
-                                          GestureDetector(
-                                            onTap: () => Get.offNamed(AuthRoutes.register),
-                                            child: Text(
-                                              " Join Now",
-                                              style: TextStyl.label(context).md.medium?.copyWith(color: AppColors.accent(context)),
-                                            ),
-                                          ),
-                                        ],
+                                      Text(
+                                        "Nevermind, Take me back to ",
+                                        style: TextStyl.label(context).md.regular?.copyWith(color: AppColors.primaryContent(context)),
                                       ),
-                                      const SizedBox(height: kSpacer2),
                                       GestureDetector(
-                                        onTap: () => Get.offNamed(AuthRoutes.forgotPassword),
+                                        onTap: () => Get.offNamed(AuthRoutes.login),
                                         child: Text(
-                                          "Forgot Password?",
+                                          " Login",
                                           style: TextStyl.label(context).md.medium?.copyWith(color: AppColors.accent(context)),
                                         ),
                                       ),

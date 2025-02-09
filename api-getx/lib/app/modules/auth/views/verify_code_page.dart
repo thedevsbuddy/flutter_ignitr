@@ -1,18 +1,18 @@
-import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../helpers/helpers.dart';
 import '../../../shared/shared.dart';
-import '../auth_module.dart';
+import '../controllers/verify_code_controller.dart';
+import '../routes/auth_router.dart';
 
-class LoginPage extends StatelessWidget {
-  final LoginController controller = LoginController.instance;
+class VerifyCodePage extends StatelessWidget {
+  VerifyCodePage({super.key});
+
+  final VerifyCodeController controller = VerifyCodeController.instance;
 
   @override
   Widget build(BuildContext context) {
-    var screen = Get.size;
-
     return Obx(
       () => !controller.internetService.isConnected
           ? NotConnectedErrorPage(
@@ -22,7 +22,8 @@ class LoginPage extends StatelessWidget {
           : AuthLayout(
               body: SafeArea(
                 child: SingleChildScrollView(
-                  child: GestureDetector(
+                  child: InkWell(
+                    splashFactory: NoSplash.splashFactory,
                     onTap: () => Keyboard.hide(context),
                     child: Container(
                       width: double.infinity,
@@ -43,15 +44,16 @@ class LoginPage extends StatelessWidget {
                                   width: 112,
                                 ),
                               ),
-                              const SizedBox(height: kSpacer8),
+                              const SizedBox(height: kSpacer),
                               Padding(
                                 padding: EdgeInsets.symmetric(horizontal: kSpacer5),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("Welcome Back", style: TextStyl.heading(context).md.semibold),
+                                    Text("Verify Code", style: TextStyl.heading(context).md.semibold),
                                     const SizedBox(height: kSpacer1),
-                                    Text("Login to your account", style: TextStyl.body(context).sm.regular),
+                                    Text("Enter the code sent to:", style: TextStyl.body(context).sm.regular),
+                                    Text("${Get.parameters['email']}", style: TextStyl.body(context).md.medium),
                                   ],
                                 ),
                               ),
@@ -66,28 +68,18 @@ class LoginPage extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  FormLabel("Email / Username"),
+                                  FormLabel("Verification Code"),
                                   const SizedBox(height: kSpacer2),
-                                  FormInput.text(
-                                    controller: controller.identifierInput,
-                                    placeholder: "john.doe@example.com",
-                                    leading: Icon(FeatherIcons.user),
-                                    validator: (value) => Validator("identifier", value!).required().validate(),
-                                  ),
-                                  const SizedBox(height: kSpacer),
-                                  FormLabel("Password"),
-                                  const SizedBox(height: kSpacer2),
-                                  FormInput.password(
-                                    controller: controller.passwordInput,
-                                    placeholder: "********",
-                                    leading: Icon(Icons.lock_outline),
-                                    validator: (value) => Validator("password", value!).required().validate(),
+                                  FormInput.number(
+                                    controller: controller.verificationCodeInput,
+                                    placeholder: "Enter verification code",
                                     action: TextInputAction.done,
+                                    validator: (value) => Validator("Verification Code", value!).max(6).min(6).required().validate(),
                                   ),
                                   const SizedBox(height: kSpacer),
                                   Button.block(
-                                    key: ObjectKey("sign_in_button"),
-                                    label: "Sign In",
+                                    key: ObjectKey("verify_code_button"),
+                                    label: "Verify Code",
                                     onTap: (ButtonController btn) async {
                                       btn.setBusy(true).setDisabled(true);
                                       await controller.submit();
@@ -107,31 +99,17 @@ class LoginPage extends StatelessWidget {
                                     ],
                                   ),
                                   const SizedBox(height: kSpacer),
-                                  Column(
+                                  Row(
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "Don't have an account?",
-                                            style: TextStyl.label(context).md.regular?.copyWith(color: AppColors.primaryContent(context)),
-                                          ),
-                                          GestureDetector(
-                                            onTap: () => Get.offNamed(AuthRoutes.register),
-                                            child: Text(
-                                              " Join Now",
-                                              style: TextStyl.label(context).md.medium?.copyWith(color: AppColors.accent(context)),
-                                            ),
-                                          ),
-                                        ],
+                                      Text(
+                                        "Nevermind, Take me back to ",
+                                        style: TextStyl.label(context).md.regular?.copyWith(color: AppColors.primaryContent(context)),
                                       ),
-                                      const SizedBox(height: kSpacer2),
                                       GestureDetector(
-                                        onTap: () => Get.offNamed(AuthRoutes.forgotPassword),
+                                        onTap: () => Get.offNamed(AuthRoutes.login),
                                         child: Text(
-                                          "Forgot Password?",
+                                          " Login",
                                           style: TextStyl.label(context).md.medium?.copyWith(color: AppColors.accent(context)),
                                         ),
                                       ),
